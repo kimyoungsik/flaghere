@@ -24,7 +24,7 @@ class FlagsController < ApplicationController
   # GET /flags/new
   # GET /flags/new.json
   def new
-    @flag = Flag.new
+    @flag = current_user.flags.build(params[:flag])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +40,7 @@ class FlagsController < ApplicationController
   # POST /flags
   # POST /flags.json
   def create
-    @flag = Flag.new(params[:flag])
+    @flag = current_user.flags.build(params[:flag])
 
     respond_to do |format|
       if @flag.save

@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :birthday, :gender, :facebook_uid, :facebook_token
   
+  has_many :flags, :dependent => :destroy
+  # has_many :participations, :dependent => :destroy
+  belongs_to :province
+   
   # attr_accessible :title, :body
   def self.new_with_session(params, session)
     super.tap do |user|
