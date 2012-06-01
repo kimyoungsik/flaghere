@@ -1,3 +1,14 @@
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 24d143978e0df6f8424e8a333605a89a87e33e23
+  specs:
+    paperclip (3.0.4)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (>= 0.0.2)
+      mime-types
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -33,6 +44,7 @@ GEM
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.0.3.1)
     builder (3.0.0)
+    cocaine (0.2.1)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -179,6 +191,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   omniauth-facebook
+  paperclip!
   rails (= 3.2.3)
   rails_admin
   sass-rails (~> 3.2.3)

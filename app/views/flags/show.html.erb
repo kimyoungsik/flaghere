@@ -17,6 +17,7 @@
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @flag.description %></dd>
 </dl>
+<%= image_tag @flag.photo.url(:small) %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

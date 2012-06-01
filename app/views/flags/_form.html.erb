@@ -1,4 +1,4 @@
-<%= simple_form_for @flag, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @flag, :html => { :class => 'form-horizontal',:multipart => true  } do |f| %>
   
 	<% f.input :user_id %>
   <%= f.input :name ,:label => '산 명칭'%>
@@ -6,6 +6,7 @@
 	<%= f.input :location,:label => '위치' %>
 	<%= f.input :date ,:label => '날짜'%>
 	<%= f.input :description ,:label => '세부사항'%>
+	<%= f.input :photo %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
