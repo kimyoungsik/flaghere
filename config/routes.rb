@@ -1,5 +1,7 @@
 Flaghere::Application.routes.draw do
   
+  resources :flags
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :admins, :path_prefix => 'd'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -53,7 +55,7 @@ Flaghere::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'flags#index'
 
   # See how all your routes lay out with "rake routes"
 
