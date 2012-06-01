@@ -1,5 +1,7 @@
 Flaghere::Application.routes.draw do
   
+  resources :provinces
+
   resources :flags
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'

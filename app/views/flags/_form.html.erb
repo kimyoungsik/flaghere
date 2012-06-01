@@ -1,40 +1,11 @@
-<%= form_for @flag, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :user_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :user_id, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :province_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :province_id, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :date, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.date_select :date, :class => 'date_select' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :location, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :location, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :description, :class => 'text_area' %>
-    </div>
-  </div>
+<%= simple_form_for @flag, :html => { :class => 'form-horizontal' } do |f| %>
+  
+	<% f.input :user_id %>
+  <%= f.input :name ,:label => '산 명칭'%>
+  <%= f.input :province_id, :collection => Province.all ,:label => '도/특별시' %>
+	<%= f.input :location,:label => '위치' %>
+	<%= f.input :date ,:label => '날짜'%>
+	<%= f.input :description ,:label => '세부사항'%>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
