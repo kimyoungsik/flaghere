@@ -1,13 +1,19 @@
 Flaghere::Application.routes.draw do
   
-  resources :provinces
 
-  resources :flags
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :admins, :path_prefix => 'd'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_scope :user do
+    get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
+  end
 
+  resources :provinces
+
+  resources :flags
+  
+  resources :users
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
