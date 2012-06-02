@@ -8,4 +8,5 @@ class Kit < ActiveRecord::Base
   validates :user_id, :presence => true
   validates :kitable_id, :presence => true 
   validates :kitable_type, :presence => true
+  validates_inclusion_of :kitable_type, :in => ["Flag","Hiking","User"]
 end
