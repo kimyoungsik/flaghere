@@ -5,6 +5,7 @@
 				<tr>
 					<th><i class="icon-user"></i>user</th>
 					<th></th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>			
@@ -13,6 +14,7 @@
 				<tr>
 					<td><%= player.user.email %></td>
 					<td><%= image_tag player.picture.url(:small) %> </td>
+					<th><%= player.note %></th>
 				</tr>
 				<% end %>
 			</tbody>	
@@ -32,10 +34,10 @@
 			:method => :delete, :remote => true, :confirm => "정말로 참여를 취소하시겠습니까?", :class => 'btn btn-danger' %>
 		<% else %>
 			<div>				
-				<%= simple_form_for current_user.participations.build(:flag_id => @flag.id), :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
-					<%= f.error_notification %>
+				<%= form_for current_user.participations.build(:flag_id => @flag.id), :html => { :multipart => true } do |f| %>
 					<%= f.hidden_field :flag_id %>
 					<%= f.file_field :picture %>
+					<%= f.text_area :note %>
 					<%= f.submit "Flag", :class => "btn btn-info" %>
 				<% end %>
 			</div>	

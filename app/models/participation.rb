@@ -1,5 +1,5 @@
 class Participation < ActiveRecord::Base
-  attr_accessible :flag_id, :user_id, :picture
+  attr_accessible :flag_id, :user_id, :picture, :note
   
   belongs_to :user
   belongs_to :flag
