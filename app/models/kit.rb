@@ -9,4 +9,6 @@ class Kit < ActiveRecord::Base
   validates :kitable_id, :presence => true 
   validates :kitable_type, :presence => true
   validates_inclusion_of :kitable_type, :in => ["Flag","Hiking","User"]
+  
+  default_scope :order => 'kits.updated_at DESC'
 end
