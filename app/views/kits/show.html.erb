@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @kit.user_id %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @kit.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_kit_path(@kit) %> |
+<%= link_to 'Back', kits_path %>

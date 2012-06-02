@@ -24,6 +24,12 @@
 </li>
 
 
+<%= render 'kits/form' %>
+
+<div id="kits">
+	<%= render @kits %>
+</div>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               flags_path, :class => 'btn'  %>

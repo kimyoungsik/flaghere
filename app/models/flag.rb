@@ -6,6 +6,8 @@ class Flag < ActiveRecord::Base
   has_many :participations, :dependent => :destroy
   has_many :participants, :through => :participations, :source => :user
   
+  has_many :kits, :as => :kitable, :dependent => :destroy
+   
   validates :name, :presence => true
   validates :date, :presence => true
   validates :location, :presence => true

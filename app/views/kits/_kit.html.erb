@@ -1,0 +1,22 @@
+<% if user_signed_in? and current_user == kit.user %>
+	<div id="kit-control">
+		<%= link_to "X", kit, :confirm => "정말로 삭제하시겠습니까?", :method => :delete, :remote => true, :id => "kit-delete" %>
+	</div>
+<% end %>
+
+<div class="item-box kit-item">
+	<div class="item-left">
+	
+	</div>
+	<div class="item-content">
+		<div class="item-content-top">
+			<h2>
+				<%= link_to kit.user.email, kit.user %>
+			</h2>
+
+		</div>
+		
+		<p><%= auto_link(kit.content.gsub(/\n/, "<br />").html_safe) %></p>
+		<div class="clear"></div>
+	</div>		
+</div>

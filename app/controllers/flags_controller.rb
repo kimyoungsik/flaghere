@@ -1,4 +1,5 @@
 class FlagsController < ApplicationController
+  before_filter :store_location
   # GET /flags
   # GET /flags.json
   def index
@@ -14,7 +15,8 @@ class FlagsController < ApplicationController
   # GET /flags/1.json
   def show
     @flag = Flag.find(params[:id])
-
+    @kits = @flag.kits.page(params[:page])
+    @kit = @flag.kits.build
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @flag }
@@ -79,5 +81,9 @@ class FlagsController < ApplicationController
       format.html { redirect_to flags_url }
       format.json { head :no_content }
     end
+  end
+  
+  def store_location
+      session[:return_to] = request.fullpath
   end
 end

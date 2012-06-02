@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
   has_many :flags, :dependent => :destroy
   has_many :participations, :dependent => :destroy
   belongs_to :province
+  
+  has_many :kits, :as => :kitable, :dependent => :destroy
+  has_many :authored_kits, :class_name => "Kit", :dependent => :destroy
    
   default_scope :order => 'users.updated_at DESC'
   # attr_accessible :title, :body
