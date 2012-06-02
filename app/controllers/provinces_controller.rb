@@ -80,4 +80,11 @@ class ProvincesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private 
+  
+  def store_location
+    session[:return_to] = request.fullpath
+  end
+  
 end

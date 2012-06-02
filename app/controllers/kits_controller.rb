@@ -1,6 +1,5 @@
 class KitsController < ApplicationController
-  
-  
+   # before_filter :store_location, :only => [:index]
   # GET /kits
   # GET /kits.json
   def index
@@ -76,20 +75,20 @@ class KitsController < ApplicationController
   def destroy
     @kit = Kit.find(params[:id])
     @kit.destroy
-
+    
     respond_to do |format|
-      format.html { redirect_to kits_url }
-      format.json { head :no_content }
+      format.html { redirect_back_or kits_path }
+      format.js
     end
   end
+  
+  private
   
   def redirect_back_or(default)
       redirect_to(session[:return_to] || default)
       clear_return_to
   end
   
-
-    
   def clear_return_to
        session[:return_to] = nil
   end 

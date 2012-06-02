@@ -1,6 +1,6 @@
 Flaghere::Application.routes.draw do
 
-  resources :kits
+  
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :admins, :path_prefix => 'd'
@@ -13,6 +13,7 @@ Flaghere::Application.routes.draw do
   resources :flags
   resources :users
   resources :participations
+  resources :kits
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
