@@ -13,7 +13,7 @@
 				<% players.each do |player| %>
 				<tr>
 					<td><%= player.user.email %></td>
-					<td><%= image_tag player.user.avatar.url(:small) %> </td>
+					<td><%= profile_photo(player.user, :small, 100) %></td>
 				</tr>
 				<% end %>
 			</tbody>	

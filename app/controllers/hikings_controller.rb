@@ -1,4 +1,5 @@
 class HikingsController < ApplicationController
+  before_filter :store_location, :only => [:show]
   # GET /hikings
   # GET /hikings.json
   def index
@@ -14,7 +15,8 @@ class HikingsController < ApplicationController
   # GET /hikings/1.json
   def show
     @hiking = Hiking.find(params[:id])
-
+    @kits = @hiking.kits.page(params[:page]).per(20)
+    @kit = @hiking.kits.build
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @hiking }
@@ -78,5 +80,11 @@ class HikingsController < ApplicationController
       format.html { redirect_to hikings_url }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  
+  def store_location
+      session[:return_to] = request.fullpath
   end
 end

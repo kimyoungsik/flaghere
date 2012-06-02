@@ -29,6 +29,12 @@
 	<%= render 'hiking_participate' %>
 </li>
 
+<%= render 'kits/form' %>
+
+<div id="kits">
+	<%= render @kits %>
+</div>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               hikings_path, :class => 'btn'  %>
