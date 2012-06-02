@@ -14,6 +14,7 @@ Flaghere::Application.routes.draw do
   resources :hikingparticipations
   resources :kits
   resources :hikings
+  resources :comments
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

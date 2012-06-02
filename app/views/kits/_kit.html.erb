@@ -21,3 +21,18 @@
 		<div class="clear"></div>
 	</div>		
 </div>
+
+<div id="comments_<%= kit.id %>">
+	<% if kit.comments.count > 2 %>
+		<div class="item-box comment-all"><i class="comment-icon"></i>
+			<%= link_to "#{kit.comments.count}개의 댓글 모두 보기", "/kits/#{kit.id}/view_all_comments", :remote => true %> 
+		</div>
+		<%= render kit.comments.last(2) %>
+	<% else %>
+		<%= render kit.comments %>	
+	<% end %>
+
+</div>
+<div class="comment-field">
+	<%= render( :partial => "comments/comment_form", :locals => { :kit => kit }) %>	
+</div>

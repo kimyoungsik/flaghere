@@ -46,7 +46,7 @@ class KitsController < ApplicationController
     respond_to do |format|
       if @kit.save
         format.html { redirect_back_or kits_path }
-        format.json { render json: @kit, status: :created, location: @kit }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @kit.errors, status: :unprocessable_entity }

@@ -25,7 +25,8 @@ class User < ActiveRecord::Base
   
   has_many :kits, :as => :kitable, :dependent => :destroy
   has_many :authored_kits, :class_name => "Kit", :dependent => :destroy
-   
+  has_many :comments, :dependent => :destroy
+  
   default_scope :order => 'users.updated_at DESC'
   # attr_accessible :title, :body
   def self.new_with_session(params, session)
