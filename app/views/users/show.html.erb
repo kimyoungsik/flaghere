@@ -8,9 +8,8 @@
   <tbody>
     
 			<tr>
-
 				<td><%= @user.email %></td>   
-				<td><%= image_tag @user.avatar.url %></td>
+				<td><%= image_tag @user.avatar.url(:small) %></td>
       </tr>
 		
   </tbody>

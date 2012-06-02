@@ -3,7 +3,7 @@ class Flag < ActiveRecord::Base
   
   belongs_to :user
   
-  has_attached_file :photo, :styles => { :small => "150x150>" },
+  has_attached_file :photo, :styles => { :thumb =>  "50x50#", :small => "150x150>", :large => "640x640>" },
     :url => "/assets/flags/:id/:style/:basename.:extension",
     :path => ":rails_root/public/assets/flags/:id/:style/:basename.:extension"
     
