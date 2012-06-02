@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120602051347) do
+ActiveRecord::Schema.define(:version => 20120602130118) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -44,6 +44,23 @@ ActiveRecord::Schema.define(:version => 20120602051347) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+  end
+
+  create_table "hikings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "province_id"
+    t.string   "name"
+    t.datetime "datetime"
+    t.string   "location"
+    t.text     "description"
+    t.integer  "limit"
+    t.string   "status",                   :default => "progress"
+    t.string   "hikingphoto_file_name"
+    t.string   "hikingphoto_content_type"
+    t.integer  "hikingphoto_file_size"
+    t.datetime "hikingphoto_updated_at"
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
   end
 
   create_table "kits", :force => true do |t|

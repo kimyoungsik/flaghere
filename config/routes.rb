@@ -2,6 +2,8 @@ Flaghere::Application.routes.draw do
 
   
 
+  resources :hikings
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :admins, :path_prefix => 'd'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

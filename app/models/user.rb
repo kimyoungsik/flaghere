@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   
   
   has_many :flags, :dependent => :destroy
+  has_many :hikings, :dependent => :destroy
   has_many :participations, :dependent => :destroy
   belongs_to :province
   

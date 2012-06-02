@@ -1,0 +1,17 @@
+<%= simple_form_for @hiking, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
+  <%= f.input :user_id %>
+  <%= f.input :province_id, :collection => Province.all ,:label => '도/특별시' %>
+  <%= f.input :name %>
+  <%= f.input :datetime %>
+  <%= f.input :location %>
+  <%= f.input :description %>
+  <%= f.input :limit %>
+  <%= f.input :status %>
+	<%= f.input :hikingphoto %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                hikings_path, :class => 'btn' %>
+  </div>
+<% end %>
