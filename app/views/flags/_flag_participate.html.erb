@@ -1,0 +1,44 @@
+<% if user_signed_in? || admin_signed_in? %>
+	<div class="well">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th><i class="icon-user"></i>user</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>			
+				<% players =  @flag.participations.all %>
+				<% players.each do |player| %>
+				<tr>
+					<td><%= player.user.email %></td>
+					<td><%= image_tag player.picture.url(:small) %> </td>
+				</tr>
+				<% end %>
+			</tbody>	
+		</table>
+	</div >
+
+	<table class="table table-striped">
+  <end>
+			
+  <% if !admin_signed_in?%>
+    <% if  current_user.participates_in?(@flag) %>
+		  <div class="alert alert-success"%>
+         <a class="close" data-dismiss="alert">x</a>
+				정복했습니다.
+      </div>
+			<%= link_to "취소", current_user.participations.find_by_flag_id(@flag.id), 
+			:method => :delete, :remote => true, :confirm => "정말로 참여를 취소하시겠습니까?", :class => 'btn btn-danger' %>
+		<% else %>
+			<div>				
+				<%= simple_form_for current_user.participations.build(:flag_id => @flag.id), :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
+					<%= f.error_notification %>
+					<%= f.hidden_field :flag_id %>
+					<%= f.file_field :picture %>
+					<%= f.submit "Flag", :class => "btn btn-info" %>
+				<% end %>
+			</div>	
+	  <% end %>
+  <% end %>
+<% end %>

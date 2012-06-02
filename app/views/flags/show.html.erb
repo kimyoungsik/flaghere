@@ -19,6 +19,11 @@
 </dl>
 <%= image_tag @flag.photo.url(:large) %>
 
+<li id="flag-participate"> 
+	<%= render 'flag_participate' %>
+</li>
+
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               flags_path, :class => 'btn'  %>

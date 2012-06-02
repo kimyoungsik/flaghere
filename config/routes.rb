@@ -1,6 +1,4 @@
 Flaghere::Application.routes.draw do
-  
-
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :admins, :path_prefix => 'd'
@@ -10,10 +8,9 @@ Flaghere::Application.routes.draw do
   end
 
   resources :provinces
-
   resources :flags
-  
   resources :users
+  resources :participations
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

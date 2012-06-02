@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   
   
   has_many :flags, :dependent => :destroy
-  # has_many :participations, :dependent => :destroy
+  has_many :participations, :dependent => :destroy
   belongs_to :province
    
   # attr_accessible :title, :body
@@ -45,5 +45,9 @@ class User < ActiveRecord::Base
                     :facebook_token => access_token.credentials.token,
                     :password => Devise.friendly_token[0,20]) 
     end
+  end
+  
+  def participates_in?(flag)
+    Participation.where(:user_id => self.id, :flag_id => flag.id).any?
   end
 end

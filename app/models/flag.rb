@@ -3,6 +3,16 @@ class Flag < ActiveRecord::Base
   
   belongs_to :user
   
+  has_many :participations, :dependent => :destroy
+  has_many :participants, :through => :participations, :source => :user
+  
+  validates :name, :presence => true
+  validates :date, :presence => true
+  validates :location, :presence => true
+  validates :description, :presence => true
+  validates :province_id, :presence => true
+  validates :user_id, :presence => true
+  
   has_attached_file :photo, :styles => { :thumb =>  "50x50#", :small => "150x150>", :large => "640x640>" },
     :url => "/assets/flags/:id/:style/:basename.:extension",
     :path => ":rails_root/public/assets/flags/:id/:style/:basename.:extension"
