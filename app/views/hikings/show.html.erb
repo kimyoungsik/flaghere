@@ -25,6 +25,10 @@
 </dl>
 <%= image_tag @hiking.hikingphoto.url(:large) %>
 
+<li id="hiking-participate"> 
+	<%= render 'hiking_participate' %>
+</li>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               hikings_path, :class => 'btn'  %>

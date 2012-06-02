@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   has_many :flags, :dependent => :destroy
   has_many :hikings, :dependent => :destroy
   has_many :participations, :dependent => :destroy
+  has_many :hikingparticipations, :dependent => :destroy
   belongs_to :province
   
   has_many :kits, :as => :kitable, :dependent => :destroy
@@ -54,6 +55,10 @@ class User < ActiveRecord::Base
   
   def participates_in?(flag)
     Participation.where(:user_id => self.id, :flag_id => flag.id).any?
+  end
+  
+  def hikingparticipates_in?(hiking)
+    Hikingparticipation.where(:user_id => self.id, :hiking_id => hiking.id).any?
   end
   
   def facebook_profile_photo

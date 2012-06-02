@@ -1,9 +1,5 @@
 Flaghere::Application.routes.draw do
 
-  
-
-  resources :hikings
-
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :admins, :path_prefix => 'd'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -15,7 +11,9 @@ Flaghere::Application.routes.draw do
   resources :flags
   resources :users
   resources :participations
+  resources :hikingparticipations
   resources :kits
+  resources :hikings
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
