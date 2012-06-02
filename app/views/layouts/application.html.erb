@@ -19,12 +19,12 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </a>
-	      <a class="brand" href="/">FlagHere</a>
+	      <a class="brand" href="/"><i class="icon-flag"></i> FlagHere</a>
 	      <div class="nav-collapse">
 	        <ul class="nav">
-	          <li><%= link_to "province", provinces_path%></li>
+						<li><%= link_to "모임", hikings_path %></li>
 	          <li><%= link_to "사람들", users_path %></li>
-	          <li><%= link_to "등산모임", hikings_path %></li>
+	          
 	        </ul>
 					<ul class="nav pull-right">
 							<% unless admin_signed_in? || user_signed_in? %>

@@ -16,7 +16,7 @@ body { padding-top: 60px; }
 @fontAwesomeSvgPath: asset-path('fontawesome-webfont.svg');
 
 // Font Awesome
-@import "fontawesome";
+ @import "fontawesome";
 
 // Your custom LESS stylesheets goes here
 //
@@ -27,4 +27,18 @@ body { padding-top: 60px; }
 // See http://twitter.github.com/bootstrap/less.html for their names and documentation
 //
 // Example:
-// @linkColor: #ff0000;
+//@linkColor: #ff0000;
+
+.navbar .brand:hover {
+  color: @white;
+	background:  transparent;
+}
+
+@navbarBackground: #62c462;
+@navbarBackgroundHighlight: #62c462;
+@navbarLinkColor: @white;
+@navbarLinkColorHover: #FAFFB8;
+@navbarLinkColorActive: #FAFFB8;
+@dropdownLinkBackgroundHover:#62c462;
+@navbarBrandColor: #FAFFB8;
+
