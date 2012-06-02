@@ -1,18 +1,16 @@
 
-
-
 <table class="table table-striped">
   <thead>
     <tr>
       <th>이름</th>
-
+			<th></th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>     
 			<tr>
         <td><%= link_to user.email, user_path(user) %></td>
-
+				<td><%= user.participations.length %></td>
       </tr>
 		<% end %>
   </tbody>

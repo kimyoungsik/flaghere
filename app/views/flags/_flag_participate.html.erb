@@ -28,10 +28,10 @@
     <% if  current_user.participates_in?(@flag) %>
 		  <div class="alert alert-success"%>
          <a class="close" data-dismiss="alert">x</a>
-				정복했습니다.
+				정상에 깃발을 꼿았습니다.
       </div>
 			<%= link_to "취소", current_user.participations.find_by_flag_id(@flag.id), 
-			:method => :delete, :remote => true, :confirm => "정말로 참여를 취소하시겠습니까?", :class => 'btn btn-danger' %>
+			:method => :delete, :remote => true, :confirm => "정말로 취소하시겠습니까?", :class => 'btn btn-danger' %>
 		<% else %>
 			<div>				
 				<%= form_for current_user.participations.build(:flag_id => @flag.id), :html => { :multipart => true } do |f| %>

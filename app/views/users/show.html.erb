@@ -6,12 +6,20 @@
     </tr>
   </thead>
   <tbody>
-    
-			<tr>
-				<td><%= @user.email %></td>   
-				<td><%= image_tag @user.avatar.url(:small) %></td>
-      </tr>
-		
+		<tr>
+			<td><%= @user.email %></td>   
+			<td><%= profile_photo(@user, :small, 100) %></td>
+     </tr>
   </tbody>
 </table>
 
+
+<% players =  @user.participations.all %>
+<% players.each do |player| %>
+	<%= players.length %>
+	<%= player.flag.name %>
+	<%= player.flag.date %>
+	
+	<%= image_tag player.picture.url(:small)%>
+
+<% end %>

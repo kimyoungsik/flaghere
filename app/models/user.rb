@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :participations, :dependent => :destroy
   belongs_to :province
    
+  default_scope :order => 'users.updated_at DESC'
   # attr_accessible :title, :body
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -49,5 +50,13 @@ class User < ActiveRecord::Base
   
   def participates_in?(flag)
     Participation.where(:user_id => self.id, :flag_id => flag.id).any?
+  end
+  
+  def facebook_profile_photo
+    if self.facebook_uid?
+      "http://graph.facebook.com/#{self.facebook_uid}/picture?type=square"
+    else 
+      false
+    end
   end
 end
