@@ -7,6 +7,7 @@ class CreateFlags < ActiveRecord::Migration
       t.date :date
       t.string :location
       t.text :description
+      t.has_attached_file :photo
 
       t.timestamps
     end

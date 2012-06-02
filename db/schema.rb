@@ -46,12 +46,12 @@ ActiveRecord::Schema.define(:version => 20120602141726) do
     t.date     "date"
     t.string   "location"
     t.text     "description"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "hikingparticipations", :force => true do |t|
@@ -90,13 +90,13 @@ ActiveRecord::Schema.define(:version => 20120602141726) do
   create_table "participations", :force => true do |t|
     t.integer  "user_id"
     t.integer  "flag_id"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.text     "note"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "provinces", :force => true do |t|
@@ -125,6 +125,10 @@ ActiveRecord::Schema.define(:version => 20120602141726) do
     t.date     "birthday"
     t.integer  "facebook_uid",           :limit => 8
     t.string   "facebook_token"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",                  :default => "", :null => false
     t.string   "reset_password_token"
@@ -137,10 +141,6 @@ ActiveRecord::Schema.define(:version => 20120602141726) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                                          :null => false
     t.datetime "updated_at",                                          :null => false
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

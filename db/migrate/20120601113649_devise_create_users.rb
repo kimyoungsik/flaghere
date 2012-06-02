@@ -8,6 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.date :birthday
       t.integer :facebook_uid, :limit=>8
       t.string :facebook_token
+      t.has_attached_file :avatar
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
 
