@@ -82,6 +82,13 @@ class KitsController < ApplicationController
     end
   end
   
+  def view_all_comments
+    @kit = Kit.find(params[:id])
+    respond_to do |format|
+      format.js
+    end    
+  end
+  
   private
   
   def redirect_back_or(default)

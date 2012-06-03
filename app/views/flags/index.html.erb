@@ -3,11 +3,7 @@
 <table class="table">
   <thead>
     <tr>
-			
-      
-      <th>
-
-			</th>
+      <th></th>
 			<th></th>
 			<th></th>
     </tr>
@@ -17,7 +13,7 @@
       <tr>
         <td><%= image_tag flag.photo.url(:small) %></td>
         <td>
-				<div> FLAG #<%= flag.id %> <%= flag.date %>(<%= Province.find_by_id(flag.province_id).name %>)</div>
+				<div> FLAG #<%= flag.id %> <%= flag.date %> (<%= Province.find_by_id(flag.province_id).name %>)</div>
 				<div class ="name"> <%= flag.name %> <a class="btn btn-success" href="flags/<%= flag.id %>"><i class="icon-flag icon-white"></i></a></div> 
 				<div><%= flag.description.gsub(/<\/?.*?>/, "").html_safe %></div>
 				<div></div>

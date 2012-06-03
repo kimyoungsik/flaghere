@@ -1,30 +1,36 @@
-<%- model_class = @flag.class -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+<div class ="center"> <%= image_tag @flag.photo.url(:large) %><br></br>
+
+	<table class="table">
+	  <tbody>
+	      <tr>
+					<td> <div class ="name"> <%= @flag.name %> 	</div> </td>
+	        <td><%= profile_photo(@flag.user, :small, 80) %></td>
+					<td><div>FLAG #<%= @flag.id %> / <%= @flag.date.strftime("%Y년 %m월 %d일") %> / <%= @flag.location %></div></td>
+	      </tr>
+	  </tbody>
+	</table>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @flag.user_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:province_id) %>:</strong></dt>
-  <dd><%= @flag.province_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @flag.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
-  <dd><%= @flag.date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
-  <dd><%= @flag.location %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @flag.description %></dd>
-</dl>
-<%= image_tag @flag.photo.url(:large) %>
+<div class ="well"><%= @flag.description.gsub(/<\/?.*?>/, "").html_safe %></div>
 
-<li id="flag-participate"> 
+<div id="flag-participate"> 
 	<%= render 'flag_participate' %>
-</li>
+</div>
 
-
-<%= render 'kits/form' %>
+<table class="table">
+	<thead>
+		<tr>
+			<th class ="name"> 댓글  </th>
+			<th></th>
+		</tr>
+	</thead>
+  <tbody>
+     <tr>
+			<td><%= profile_photo(current_user, :small, 80) %></td>
+			<%= render 'kits/form' %>
+     </tr>
+  </tbody>
+</table>
 
 <div id="kits">
 	<%= render @kits %>

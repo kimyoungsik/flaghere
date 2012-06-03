@@ -1,10 +1,9 @@
 <% if user_signed_in? || admin_signed_in? %>
-	<div class="well">
-		<table class="table table-striped">
+	<div id ="flagsuccess" class ="well">
+		<table class="table">
 			<thead>
 				<tr>
-					<th><i class="icon-user"></i>user</th>
-					<th></th>
+					<th class ="name"> <i class="icon-user"></i> 정복자  </th>
 					<th></th>
 				</tr>
 			</thead>
@@ -12,33 +11,35 @@
 				<% players =  @flag.participations.all %>
 				<% players.each do |player| %>
 				<tr>
-					<td><%= player.user.email %></td>
 					<td><%= image_tag player.picture.url(:small) %> </td>
-					<th><%= player.note %></th>
+					<td><%= player.user.email %> (<%= player.date %>)<br><%= player.note %></td>
 				</tr>
 				<% end %>
 			</tbody>	
 		</table>
-	</div >
+	</div>
 
-	<table class="table table-striped">
+	<table class="table">
   <end>
 			
   <% if !admin_signed_in?%>
     <% if  current_user.participates_in?(@flag) %>
 		  <div class="alert alert-success"%>
          <a class="close" data-dismiss="alert">x</a>
-				정상에 깃발을 꼿았습니다.
+				정상에 깃발을 꽂았습니다.
       </div>
 			<%= link_to "취소", current_user.participations.find_by_flag_id(@flag.id), 
 			:method => :delete, :remote => true, :confirm => "정말로 취소하시겠습니까?", :class => 'btn btn-danger' %>
 		<% else %>
-			<div>				
-				<%= form_for current_user.participations.build(:flag_id => @flag.id), :html => { :multipart => true } do |f| %>
+			<div id= "flagsuccessform" class = "well">				
+				<%= simple_form_for current_user.participations.build(:flag_id => @flag.id), :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
+					<div class ="name"><i class="icon-flag"></i> 꽂기</div>
 					<%= f.hidden_field :flag_id %>
-					<%= f.file_field :picture %>
-					<%= f.text_area :note %>
-					<%= f.submit "Flag", :class => "btn btn-info" %>
+					<%= f.input :date, :label => "날짜" %>
+					<%= f.input :note, :label => "한줄 소감" %>
+					<%= f.input :picture, :label => "사진", :hint => "위의 사진을 참고로 하여 정상샷을 반드시 올려주세요 " %>
+					
+					<%= f.submit "꽂기", :class => "btn btn-info" %>
 				<% end %>
 			</div>	
 	  <% end %>

@@ -1,9 +1,9 @@
 class Participation < ActiveRecord::Base
-  attr_accessible :flag_id, :user_id, :picture, :note
+  attr_accessible :flag_id, :user_id, :picture, :note, :date
   
   belongs_to :user
   belongs_to :flag
-  
+  validates :date, :presence => true
   validates :picture, :presence => true
   validates :user_id, :presence => true
   validates :flag_id, :presence => true

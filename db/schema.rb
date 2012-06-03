@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20120602141726) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.text     "note"
+    t.date     "date"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
   end

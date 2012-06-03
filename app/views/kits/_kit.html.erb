@@ -1,26 +1,18 @@
-<% if user_signed_in? and current_user == kit.user %>
-	<div id="kit-control">
 
-		<%= link_to 'Destroy', kit, confirm: 'Are you sure?', method: :delete %>
-	</div>
+<div id ="kit-item" class ="well">
+<% if user_signed_in? and current_user == kit.user %>
+	<%= link_to "x", kit, confirm: 'Are you sure?', method: :delete %>
 <% end %>
 
-<div class="item-box kit-item">
-	<div class="item-left">
-	
-	</div>
-	<div class="item-content">
-		<div class="item-content-top">
-			<h2>
-				<%= link_to kit.user.email, kit.user %>
-			</h2>
+	<table class="table">
+		<tbody>			
+			<tr>
+				<td><%= link_to profile_photo(kit.user, :small, 80), kit.user  %> </td>
+				<td><%= kit.user.email %><br><%= auto_link(kit.content.gsub(/\n/, "<br />").html_safe) %></td>
+			</tr>
+		</tbody>	
+	</table>
 
-		</div>
-		
-		<p><%= auto_link(kit.content.gsub(/\n/, "<br />").html_safe) %></p>
-		<div class="clear"></div>
-	</div>		
-</div>
 
 <div id="comments_<%= kit.id %>">
 	<% if kit.comments.count > 2 %>
@@ -35,4 +27,6 @@
 </div>
 <div class="comment-field">
 	<%= render( :partial => "comments/comment_form", :locals => { :kit => kit }) %>	
+</div>
+
 </div>

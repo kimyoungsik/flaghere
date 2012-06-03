@@ -15,6 +15,8 @@ Flaghere::Application.routes.draw do
   resources :kits
   resources :hikings
   resources :comments
+  
+  match '/kits/:id/view_all_comments', :to => 'kits#view_all_comments'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

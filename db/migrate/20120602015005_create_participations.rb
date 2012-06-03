@@ -5,6 +5,7 @@ class CreateParticipations < ActiveRecord::Migration
       t.integer :flag_id
       t.has_attached_file :picture
       t.text :note
+      t.date :date
       t.timestamps
     end
   end
