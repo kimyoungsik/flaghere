@@ -1,0 +1,51 @@
+$sidebar-box-color: #62c462;
+$box-border: 0;
+$main-box-color: #fff;
+$border: 1px solid #ddd;
+
+
+$gray-color3: #aaa;
+
+@mixin box-sizing{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;	
+}
+
+@mixin subtext-style{
+	font-family: 'NanumgothicWeb', Helvetica, Arial, sans-serif;	
+	font-weight: normal;
+	font-size: 11px;
+	line-height: 16px;
+	color: $gray-color3;
+}
+
+@mixin box-shadow($shadow){
+	box-shadow: $shadow;
+	-webkit-box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+}
+
+/* border-radius */
+@mixin rounded-corners($radius){  
+  border-radius: $radius;  
+  -moz-border-radius: $radius;  
+  -webkit-border-radius: $radius; 
+	overflow: hidden;
+}
+
+
+@mixin item-box{
+	width: 100%;
+	padding: 10px 20px;	
+	@include box-sizing;
+}
+
+
+@mixin image{
+	@include box-sizing;
+	@include box-shadow(0 1px 5px rgba(0,0,0,.46));
+/*	background: #fff;*/
+/*	padding: 5px;*/
+/*	@include box-shadow(0 2px 2px #ddd);*/
+}

@@ -1,32 +1,28 @@
 <%- model_class = Flag.new.class -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-</div>
-<table class="table table-striped">
+
+<table class="table">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:province_id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:date) %></th>
-      <th><%= model_class.human_attribute_name(:location) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+			
+      
+      <th>
+
+			</th>
+			<th></th>
+			<th></th>
     </tr>
   </thead>
   <tbody>
     <% @flags.each do |flag| %>
       <tr>
-        <td><%= link_to flag.id, flag_path(flag) %></td>
-        <td><%= flag.user_id %></td>
-        <td><%= flag.province_id %></td>
-        <td><%= flag.name %></td>
-        <td><%= flag.date %></td>
-        <td><%= flag.location %></td>
-        <td><%= flag.description %></td>
-        <td><%=l flag.created_at %></td>
+        <td><%= image_tag flag.photo.url(:small) %></td>
+        <td>
+				<div> FLAG #<%= flag.id %> <%= flag.date %>(<%= Province.find_by_id(flag.province_id).name %>)</div>
+				<div class ="name"> <%= flag.name %> <a class="btn btn-success" href="flags/<%= flag.id %>"><i class="icon-flag icon-white"></i></a></div> 
+				<div><%= flag.description.gsub(/<\/?.*?>/, "").html_safe %></div>
+				<div></div>
+				</td>
+
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_flag_path(flag), :class => 'btn btn-mini' %>
@@ -40,7 +36,14 @@
     <% end %>
   </tbody>
 </table>
-
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_flag_path,
             :class => 'btn btn-primary' %>
+
+
+
+
+
+
+
+
