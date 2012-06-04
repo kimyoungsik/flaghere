@@ -1,41 +1,25 @@
-<%- model_class = Hiking.new.class -%>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-			<th></th>
-			<th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @hikings.each do |hiking| %>
-      <tr>
-        <td><%= image_tag hiking.hikingphoto.url(:small) %></td>
-        <td>
-				<div class ="name"> <%= hiking.name %> <a class="btn btn-success" href="hikings/<%= hiking.id %>"><i class="icon-leaf "></i></a></div> 
-				<div> 출발 일시 : <%= hiking.datetime.strftime("%Y-%m-%d %H:%M") %> (<%= Province.find_by_id(hiking.province_id).name %>)</div>
-				<div>출발 장소 : <%= hiking.location %></div>
-				<div>회비 : <%= number_with_delimiter(hiking.money) %></div>
-				<div>최대 인원 : <%= hiking.hikingparticipations.length %>/<%= hiking.limit %>
-				<div>준비물 &  비고 : <%= hiking.description.gsub(/<\/?.*?>/, "").html_safe %></div>
-				<div></div>
-				</td>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#progress" data-toggle="tab">진행</a></li>
+  <li class><a href="#after" data-toggle="tab">종료</a></li>
+	<% if user_signed_in?  %>
+		<li class><a href="#participation" data-toggle="tab">참여경기</a></li>
+	<% end %>
+</ul>
 
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_hiking_path(hiking), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      hiking_path(hiking),
-                      :method => :delete,
-                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="tab-content">
+  <div class="tab-pane active" id="progress">
+		<%= render "progress_table"%>
+	</div>
+  <div class="tab-pane" id="after">
+  	<%= render "after_table"%>
+  </div>
+	<% if user_signed_in? %>
+	 <div class="tab-pane" id="participation">
+	  	<%= render "participation_table"%>
+	 </div>
+	<% end %>
+</div>
 
 
 <%= link_to t('.new', :default => t("helpers.links.new")),

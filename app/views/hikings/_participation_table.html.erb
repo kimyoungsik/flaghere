@@ -1,0 +1,38 @@
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+			<th></th>
+			<th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.hikingparticipations.each do |hikingparticipation| %>
+		
+      <tr>
+        <td><%= image_tag hikingparticipation.hiking.hikingphoto.url(:small) %></td>
+        <td>
+				<div class ="name"> <%= hikingparticipation.hiking.name %> <a class="btn btn-success" href="hikings/<%= hikingparticipation.hiking.id %>"><i class="icon-leaf "></i></a></div> 
+				<div> 출발 일시 : <%= hikingparticipation.hiking.datetime.strftime("%Y-%m-%d %H:%M") %> (<%= Province.find_by_id(hikingparticipation.hiking.province_id).name %>)</div>
+				<div>출발 장소 : <%= hikingparticipation.hiking.location %></div>
+				<div>회비 : <%= number_with_delimiter(hikingparticipation.hiking.money) %></div>
+				<div>최대 인원 : <%= hikingparticipation.hiking.hikingparticipations.length %>/<%= hikingparticipation.hiking.limit %>
+				<div>준비물 &  비고 : <%= hikingparticipation.hiking.description.gsub(/<\/?.*?>/, "").html_safe %></div>
+				<div></div>
+				</td>
+
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_hiking_path(hikingparticipation.hiking), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      hiking_path(hikingparticipation.hiking),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+			
+    <% end %>
+  </tbody>
+</table>
