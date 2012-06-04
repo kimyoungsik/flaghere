@@ -19,12 +19,16 @@
 			<%= link_to "취소", current_user.hikingparticipations.find_by_hiking_id(@hiking.id), 
 			:method => :delete, :remote => true, :confirm => "정말로 취소하시겠습니까?", :class => 'btn btn-danger' %>
 		<% else %>
-			<div>				
-				<%= form_for current_user.hikingparticipations.build(:hiking_id => @hiking.id), :html => { :multipart => true } do |f| %>
-					<%= f.hidden_field :hiking_id %>
-					<%= f.submit "참여하기", :class => "btn btn-info" %>
-				<% end %>
-			</div>	
+			<% if @hiking.hikingparticipations.length < @hiking.limit %>
+				<div>				
+					<%= form_for current_user.hikingparticipations.build(:hiking_id => @hiking.id), :html => { :multipart => true } do |f| %>
+						<%= f.hidden_field :hiking_id %>
+						<%= f.submit "참여하기", :class => "btn btn-info" %>
+					<% end %>
+				</div>
+			<% else %>
+				<div>  정원 초과 입니다. </div>
+			<% end %>	
 	  <% end %>
   <% end %>
 <% end %>

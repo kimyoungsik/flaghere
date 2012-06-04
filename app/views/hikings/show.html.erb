@@ -1,6 +1,7 @@
 <div class ="center"> <%= image_tag @hiking.hikingphoto.url(:large) %> </div>
 
-<div class ="name"><i class="icon-user"></i> 참가합니다.</div>
+<div class ="name"><i class="icon-user"></i> 참가합니다. (<%= @hiking.hikingparticipations.length %>/<%= @hiking.limit %>)</div>
+
 <div id="hiking-participate"> 
 	<%= render 'hiking_participate' %>
 </div>

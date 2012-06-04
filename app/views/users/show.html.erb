@@ -2,7 +2,8 @@
 <ul class = "display-inline-block">
 	<li><%= profile_photo(@user, :large, 500) %></li>
 	<li>
-		<div><%= @user.email %></div>
+		<div class ="name"> <%= @user.email %></div>
+		<div><a class="btn btn-warning" type="button" href="edit"><i class="icon-camera"></i></a></div>
 	</li>
 </ul>
 

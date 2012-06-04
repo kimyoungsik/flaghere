@@ -15,7 +15,7 @@ class Flag < ActiveRecord::Base
   validates :province_id, :presence => true
   validates :user_id, :presence => true
   
-  has_attached_file :photo, :styles => { :thumb =>  "50x50#", :small => "200x150#", :large => "640x640>" },
+  has_attached_file :photo, :styles => { :thumb =>  "50x50#", :small => "150x150>", :large => "640x640>" },
     :url => "/assets/flags/:id/:style/:basename.:extension",
     :path => ":rails_root/public/assets/flags/:id/:style/:basename.:extension"
     
