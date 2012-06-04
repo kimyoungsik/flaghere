@@ -1,28 +1,37 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-			<th></th>
-			<th></th>
-    </tr>
-  </thead>
-  <tbody>
-		<tr>
-			<td><%= @user.email %></td>   
-			<td><%= profile_photo(@user, :small, 100) %></td>
-     </tr>
-  </tbody>
-</table>
 
+<ul class = "display-inline-block">
+	<li><%= profile_photo(@user, :large, 500) %></li>
+	<li>
+		<div><%= @user.email %></div>
+	</li>
+</ul>
 
-<% players =  @user.participations.all %>
-<% players.each do |player| %>
-	<%= players.length %>
-	<%= player.flag.name %>
-	<%= player.flag.date %>
+<div id ="firstplayer" class ="well">
+	<% firstplayers = @user.flags.all %>
+	<div class ="name"> <%= firstplayers.length %>개의 <i class="icon-flag"></i> 선봉장이 되었습니다.</div>
+	<% firstplayers.each do |firstplayer| %>
 	
-	<%= image_tag player.picture.url(:small)%>
+		<span class="flag-image">	<%= link_to flag_photo(firstplayer, :small), '#', :rel => "popover", :title => firstplayer.name, "data-content" => "#{firstplayer.date} "  %>
+		</span>
+	
+	<% end %>
+</div>
 
-<% end %>
+<div id ="flagplayer" class ="well">
+	<% players =  @user.participations.all %>
+	<div class ="name"><%= players.length %>개의 <i class="icon-flag"></i> 정상에 깃발을 꽂았습니다.</div>
+	<% players.each do |player| %>
+	
+		<span class="flag-image">	<%= link_to flag_image(player, :small), '#', :rel => "popover", :title => player.flag.name, "data-content" => "#{player.flag.date} "  %>
+		</span>
+	<% end %>
+</div>
+
+
+
+
+
+
 
 
 <%= render 'kits/form' %>

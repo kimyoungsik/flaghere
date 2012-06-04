@@ -69,4 +69,13 @@ class User < ActiveRecord::Base
       false
     end
   end
+  
+  def facebook_profile_photo_large
+     if self.facebook_uid?
+       "http://graph.facebook.com/#{self.facebook_uid}/picture?type=large"
+     else 
+       false
+     end
+   end
+   
 end
