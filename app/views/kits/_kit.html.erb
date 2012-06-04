@@ -1,32 +1,34 @@
 
 <div id ="kit-item" class ="well">
 <% if user_signed_in? and current_user == kit.user %>
-	<%= link_to "x", kit, confirm: 'Are you sure?', method: :delete %>
+	<div id ="kit-delete"><%= link_to "x", kit, confirm: 'Are you sure?', method: :delete %></div>
 <% end %>
+	<ul class = "display-inline-block">
+		<li><%= link_to profile_photo(kit.user, :small, 80), kit.user  %></li>
+		<li>
+			<div><%= kit.user.email %></div>
+	  	<div class="timestamp">
+	    	Posted <%= time_ago_in_words(kit.created_at) %> ago.
+	  	</div>
+		</li>
+		<div class="content"><%= auto_link(kit.content.gsub(/\n/, "<br />").html_safe) %></div>
+	</ul>
 
-	<table class="table">
-		<tbody>			
-			<tr>
-				<td><%= link_to profile_photo(kit.user, :small, 80), kit.user  %> </td>
-				<td><%= kit.user.email %><br><%= auto_link(kit.content.gsub(/\n/, "<br />").html_safe) %></td>
-			</tr>
-		</tbody>	
-	</table>
 
+	<div id="comments_<%= kit.id %>">
+		<% if kit.comments.count > 2 %>
+			<div class="item-box comment-all"><i class="comment-icon"></i>
+				<%= link_to "#{kit.comments.count}개의 댓글 모두 보기", "/kits/#{kit.id}/view_all_comments", :remote => true %> 
+			</div>
+			<%= render kit.comments.last(2) %>
+		<% else %>
+			<%= render kit.comments %>	
+		<% end %>
 
-<div id="comments_<%= kit.id %>">
-	<% if kit.comments.count > 2 %>
-		<div class="item-box comment-all"><i class="comment-icon"></i>
-			<%= link_to "#{kit.comments.count}개의 댓글 모두 보기", "/kits/#{kit.id}/view_all_comments", :remote => true %> 
-		</div>
-		<%= render kit.comments.last(2) %>
-	<% else %>
-		<%= render kit.comments %>	
-	<% end %>
+	</div>
+	<div class="comment-field">
+		<%= render( :partial => "comments/comment_form", :locals => { :kit => kit }) %>	
+	</div>
 
 </div>
-<div class="comment-field">
-	<%= render( :partial => "comments/comment_form", :locals => { :kit => kit }) %>	
-</div>
 
-</div>

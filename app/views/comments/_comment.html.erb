@@ -1,18 +1,20 @@
-
+<%= div_for(comment, :class => "item-box comment-item") do %>
 <% if user_signed_in? and current_user == comment.user %>
 	<div id="comment-control">
 		<%= link_to "x", comment, :confirm => "정말로 삭제하시겠습니까?", :method => :delete, :remote => true, :id => "comment-delete" %>
 	</div>
 <% end %>
 
-<table class="table">
-	<tbody>			
-		<tr>
-			<td><%= profile_photo(comment.user, :small, 60) %> </td>
-			<td><%= link_to comment.user.email, comment.user %></td>
-			<td><%= auto_link(comment.content.gsub(/\n/, "<br />").html_safe) %></td>
-			<td>	<%= time_ago_in_words(comment.created_at) %> 전</td>
-		</tr>
-	</tbody>	
-</table>
+<ul class = "display-inline-block">
+	<li><%= link_to profile_photo(comment.user, :small, 60), comment.user  %></li>
+	<li>
+		<div><%= comment.user.email %></div>
+  	<div class="timestamp">
+    	<%= time_ago_in_words(comment.created_at) %> 전.
+  	</div>
+	</li>
+	<div class="content"><%= auto_link(comment.content.gsub(/\n/, "<br />").html_safe) %></div>
+</ul>
+<% end %>
+
 

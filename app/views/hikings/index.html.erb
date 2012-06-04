@@ -1,38 +1,29 @@
 <%- model_class = Hiking.new.class -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-</div>
-<table class="table table-striped">
+
+  <h1>Go Hiking !</h1>
+
+<table class="table">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:province_id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:datetime) %></th>
-      <th><%= model_class.human_attribute_name(:location) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:limit) %></th>
-      <th><%= model_class.human_attribute_name(:status) %></th>
-
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th></th>
+			<th></th>
+			<th></th>
     </tr>
   </thead>
   <tbody>
     <% @hikings.each do |hiking| %>
       <tr>
-        <td><%= link_to hiking.id, hiking_path(hiking) %></td>
-        <td><%= hiking.user_id %></td>
-        <td><%= hiking.province_id %></td>
-        <td><%= hiking.name %></td>
-        <td><%= hiking.datetime %></td>
-        <td><%= hiking.location %></td>
-        <td><%= hiking.description %></td>
-        <td><%= hiking.limit %></td>
-        <td><%= hiking.status %></td>
+        <td><%= image_tag hiking.hikingphoto.url(:small) %></td>
+        <td>
+				<div class ="name"> <%= hiking.name %> <a class="btn btn-success" href="hikings/<%= hiking.id %>"><i class="icon-leaf "></i></a></div> 
+				<div> 출발 일시 : <%= hiking.datetime.strftime("%Y-%m-%d %H:%M") %> (<%= Province.find_by_id(hiking.province_id).name %>)</div>
+				<div>출발 장소 : <%= hiking.location %></div>
+				<div>회비 : <%= number_with_delimiter(hiking.money) %></div>
+				<div>최대 인원 : <%= hiking.hikingparticipations.length %>/<%= hiking.limit %>
+				<div>준비물 &  비고 : <%= hiking.description.gsub(/<\/?.*?>/, "").html_safe %></div>
+				<div></div>
+				</td>
 
-        <td><%=l hiking.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_hiking_path(hiking), :class => 'btn btn-mini' %>
@@ -46,6 +37,8 @@
     <% end %>
   </tbody>
 </table>
+
+
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_hiking_path,

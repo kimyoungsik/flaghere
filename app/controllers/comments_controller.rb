@@ -41,6 +41,7 @@ class CommentsController < ApplicationController
     end    
   end
   
+  
   private
   
    def authorized_user

@@ -1,39 +1,31 @@
-<%- model_class = @hiking.class -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
-</div>
+<div class ="center"> <%= image_tag @hiking.hikingphoto.url(:large) %> </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @hiking.user_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:province_id) %>:</strong></dt>
-  <dd><%= @hiking.province_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @hiking.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:datetime) %>:</strong></dt>
-  <dd><%= @hiking.datetime %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
-  <dd><%= @hiking.location %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @hiking.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:limit) %>:</strong></dt>
-  <dd><%= @hiking.limit %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
-  <dd><%= @hiking.status %></dd>
- 
-  <dd><%= @hiking.hikingphoto_updated_at %></dd>
-</dl>
-<%= image_tag @hiking.hikingphoto.url(:large) %>
-
-<li id="hiking-participate"> 
+<div class ="name"><i class="icon-user"></i> 참가합니다.</div>
+<div id="hiking-participate"> 
 	<%= render 'hiking_participate' %>
-</li>
+</div>
+<table class="table">
+	<thead>
+		<tr>
+			<th class ="name"><i class="icon-comment"></i></th>
+			<th></th>
+		</tr>
+	</thead>
+  <tbody>
+     <tr>
+			<td><%= profile_photo(current_user, :small, 80) %></td>
+			<%= render 'kits/form' %>
+     </tr>
+  </tbody>
+</table>
 
-<%= render 'kits/form' %>
 
 <div id="kits">
 	<%= render @kits %>
 </div>
+<%= will_paginate @kits %>
+
+
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20120602141726) do
     t.string   "location"
     t.text     "description"
     t.integer  "limit"
+    t.integer  "money"
     t.string   "status",                   :default => "progress"
     t.string   "hikingphoto_file_name"
     t.string   "hikingphoto_content_type"

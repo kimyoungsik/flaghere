@@ -1,5 +1,5 @@
 class Hiking < ActiveRecord::Base
-  attr_accessible :datetime, :description, :limit, :location, :name, :province_id, :status, :user_id, :hikingphoto
+  attr_accessible :datetime, :description, :limit, :location, :name, :province_id, :status, :user_id, :hikingphoto, :money
   
   belongs_to :user
   has_many :hikingparticipations, :dependent => :destroy

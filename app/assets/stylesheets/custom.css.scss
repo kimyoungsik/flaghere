@@ -21,19 +21,42 @@
 
 	background:  #f3edd2;
 }
+
+#hikingparticipants {
+	background: #d9edf7;
+}
 #kit_content {
-	width: 650px;
+	width: 800px;
 	height: 50px;
 }
 
 #commentform {
-	background: #d9edf7;
-	width: 650px;
+	background: #dff0d8;
+	width: 700px;
 	height: 60px;
 }
 
-#kit-item {
-	background: #dff0d8;
-	
+.comment-textarea {
+	width: 500px;
+}
+
+
+.timestamp {
+  color: #62c462;
+}
+
+ul.display-inline-block li {
+
+	display: inline-block;
 
 }
+#kit-delete, #comment-delete {
+	float: right;
+}
+
+.flag-image {
+	margin: 0 3px 3px 0;
+}
+
+
+
