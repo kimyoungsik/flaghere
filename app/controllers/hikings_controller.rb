@@ -3,8 +3,7 @@ class HikingsController < ApplicationController
   # GET /hikings
   # GET /hikings.json
   def index
-    @hikings = Hiking.all
-
+    @hikings = Hiking.order("name").page(params[:page]).per(10)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @hikings }
@@ -15,7 +14,8 @@ class HikingsController < ApplicationController
   # GET /hikings/1.json
   def show
     @hiking = Hiking.find(params[:id])
-    @kits = @hiking.kits.page(params[:page]).per_page(20)
+    
+    @kits = @hiking.kits.page(params[:page]).per(20)
     @kit = @hiking.kits.build
     respond_to do |format|
       format.html # show.html.erb

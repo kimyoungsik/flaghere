@@ -1,38 +1,27 @@
 
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-			<th></th>
-			<th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @hikings.each do |hiking| %>
-			<% if (Time.now- hiking.datetime) < 0 %>
-      <tr>
-        <td><%= image_tag hiking.hikingphoto.url(:small) %></td>
-        <td>
-				<div class ="name"> <%= hiking.name %> <a class="btn btn-success" href="hikings/<%= hiking.id %>"><i class="icon-leaf "></i></a></div> 
-				<div> 출발 일시 : <%= hiking.datetime.strftime("%Y-%m-%d %H:%M") %> (<%= Province.find_by_id(hiking.province_id).name %>)</div>
-				<div>출발 장소 : <%= hiking.location %></div>
-				<div>회비 : <%= number_with_delimiter(hiking.money) %></div>
-				<div>최대 인원 : <%= hiking.hikingparticipations.length %>/<%= hiking.limit %>
-				<div>준비물 &  비고 : <%= hiking.description.gsub(/<\/?.*?>/, "").html_safe %></div>
-				<div></div>
-				</td>
+<div class = "episode">
+	<div class = "shot"><%= image_tag progress_table.hikingphoto.url(:small) %></div>
+	<div class = "main">
+		<div class ="name"> <%= progress_table.name %> </div> 
+		<div class ="description"><div> 출발 일시 : <%= progress_table.datetime.strftime("%Y-%m-%d %H:%M") %> (<%= Province.find_by_id(progress_table.province_id).name %>)</div>
+		<div>출발 장소 : <%= progress_table.location %></div>
+		<div>회비 : <%= number_with_delimiter(progress_table.money) %></div>
+		<div>최대 인원 : <%= progress_table.hikingparticipations.length %>/<%= hiking.limit %>
+		<div>준비물 &  비고 : <%= progress_table.description.gsub(/<\/?.*?>/, "").html_safe %></div></div>
 
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_hiking_path(hiking), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      hiking_path(hiking),
-                      :method => :delete,
-                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-			<% end %>
-    <% end %>
-  </tbody>
-</table>
+
+    <div>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                  edit_hiking_path(progress_table), :class => 'btn btn-mini' %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                  hiking_path(progress_table),
+                  :method => :delete,
+                  :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                  :class => 'btn btn-mini btn-danger' %>
+    </div>
+	</div>
+</div>
+<% end %>
+
+
+

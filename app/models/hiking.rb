@@ -7,7 +7,7 @@ class Hiking < ActiveRecord::Base
   
   has_many :kits, :as => :kitable, :dependent => :destroy
   
-  has_attached_file :hikingphoto, :styles => { :thumb =>  "50x50#", :small => "150x150>", :large => "640x640>" },
+  has_attached_file :hikingphoto, :styles => { :thumb =>  "50x50#", :small => "200x200#", :large => "640x640>" },
     :url => "/assets/hikings/:id/:style/:basename.:extension",
     :path => ":rails_root/public/assets/hikings/:id/:style/:basename.:extension"
     

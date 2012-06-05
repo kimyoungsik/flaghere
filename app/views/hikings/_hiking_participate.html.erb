@@ -9,7 +9,6 @@
 		<% end %>
 		</div>
 		
-	
   <% if !admin_signed_in?%>
     <% if  current_user.hikingparticipates_in?(@hiking) %>
 		  <div class="alert alert-success"%>
@@ -19,15 +18,17 @@
 			<%= link_to "취소", current_user.hikingparticipations.find_by_hiking_id(@hiking.id), 
 			:method => :delete, :remote => true, :confirm => "정말로 취소하시겠습니까?", :class => 'btn btn-danger' %>
 		<% else %>
-			<% if @hiking.hikingparticipations.length < @hiking.limit %>
+			<% if @hiking.hikingparticipations.length < @hiking.limit and (Time.now - @hiking.datetime) < 0 %>
 				<div>				
 					<%= form_for current_user.hikingparticipations.build(:hiking_id => @hiking.id), :html => { :multipart => true } do |f| %>
 						<%= f.hidden_field :hiking_id %>
 						<%= f.submit "참여하기", :class => "btn btn-info" %>
 					<% end %>
 				</div>
-			<% else %>
+			<% elsif @hiking.hikingparticipations.length >= @hiking.limit and (Time.now - @hiking.datetime) < 0 %>
 				<div>  정원 초과 입니다. </div>
+			<% else%>
+				<div> 종료된 산행 입니다. </div>
 			<% end %>	
 	  <% end %>
   <% end %>

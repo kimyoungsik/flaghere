@@ -63,39 +63,40 @@ ul.display-inline-block li {
 	float: right;
 }
 
-.flag-image {
+.flags -image {
 	margin: 0 3px 3px 0;
 }
 
 
-.flags {
+
+.displays {
 	display: block;
 }
 
-.flags .episode {
+.displays .episode {
 padding-bottom: 110px;
 border-bottom: solid 1px #E5E5E5;
 margin-bottom: 20px;
 
 }
 
-.flags .flagshot {
+.displays .shot {
 	float: left;
 	margin-right: 30px;
 }
 
-.flags .main {
+.displays .main {
 	margin-left: 215px;
 }
 
 
-.flags .info {
+.displays .info {
 	color: #999;
 	font-size: 12px;
 	margin-bottom: 10px;
 }
 
-.flags .flagname {
+.displays .name {
 	color: #62c462;
   font-size: 30px;
  	margin: 3px 0;
@@ -110,7 +111,7 @@ margin-bottom: 20px;
 	}
 }
 
-.flags .description {
+.displays .description {
 	margin-bottom: 17px;
 	font-size: 16px;
 }

@@ -1,4 +1,21 @@
-<div class ="center"> <%= image_tag @hiking.hikingphoto.url(:large) %> </div>
+<div class ="center"> <%= image_tag @hiking.hikingphoto.url(:large) %> 
+
+	<table class="table">
+	  <tbody>
+	      <tr>
+					<td> <div class ="name"> <%= @hiking.name %> 	</div> </td>
+	        <td><%= link_to profile_photo(@hiking.user, :small, 80), @hiking.user %></td>
+					<td>
+						<div> 출발 일시 : <%= @hiking.datetime.strftime("%Y년 %m월 %d일 %H시 %M분") %> (<%= Province.find_by_id(@hiking.province_id).name %>)</div>
+						<div>출발 장소 : <%= @hiking.location %></div>
+						<div>회비 : <%= number_with_delimiter(@hiking.money) %></div>
+						<div>모집 최대 인원 : <%= @hiking.hikingparticipations.length %>/<%= @hiking.limit %>
+						<div>준비물 &  비고 : <%= @hiking.description.gsub(/<\/?.*?>/, "").html_safe %></div></div>
+					</td>
+	      </tr>
+	  </tbody>
+	</table>
+</div>
 
 <div class ="name"><i class="icon-user"></i> 참가합니다. (<%= @hiking.hikingparticipations.length %>/<%= @hiking.limit %>)</div>
 
@@ -24,7 +41,7 @@
 <div id="kits">
 	<%= render @kits %>
 </div>
-<%= will_paginate @kits %>
+<%= paginate @kits %>
 
 
 
