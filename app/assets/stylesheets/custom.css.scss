@@ -1,12 +1,12 @@
 @import "mixin";
 
 .name {
-  color: #62c462;
+  color: #c09853;
   font-size: 20px;
- 	margin: 3px 3px 3px 0;
+ 	margin: 3px 3px 10px 0;
 }
 .hikingname {
-  color: #08c;
+  color: #c09853;
 	font-weight: bold;
   font-size: 20px;
  	margin: 3px 3px 3px 0;
@@ -44,7 +44,7 @@
 	background: #eee;
 	
 	.flag-image{
-		
+		@include rounded-corners(6px);
 		margin: 0 7px 13px 0;
 	
 	}
@@ -83,8 +83,10 @@ ul.display-inline-block li {
 	float: right;
 }
 
-.flags -image {
-	margin: 0 3px 3px 0;
+.flag-image {
+	margin: 0 7px 13px 0;
+	@include rounded-corners(6px);
+	
 }
 
 
@@ -103,6 +105,7 @@ margin-bottom: 20px;
 .displays .shot {
 	float: left;
 	margin-right: 30px;
+	@include rounded-corners(6px);
 }
 
 .displays .main {
@@ -117,17 +120,16 @@ margin-bottom: 20px;
 }
 
 .displays .name {
-	color: #62c462;
   font-size: 30px;
  	margin: 3px 0;
 	font-weight: bold;
 	margin-bottom: 20px;
 	a:visited {
-		color: #62c462;
+		color: #c09853;
 	}
 	a:hover {
 		background :#FFFFFF; 
-		color: #62c462
+		color: #c09853;
 	}
 }
 
@@ -153,6 +155,7 @@ margin-bottom: 20px;
 .user_displays .shot {
 	float: left;
 	margin-right: 10px;
+	@include rounded-corners(6px);
 }
 
 .user_displays .main {

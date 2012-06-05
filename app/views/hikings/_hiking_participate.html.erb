@@ -1,12 +1,14 @@
 <% if user_signed_in? || admin_signed_in? %>
 	<div id ="hikingparticipants" class="well">
 		<% players =  @hiking.hikingparticipations.all %>
-		<% players.each do |player| %>
+		<ul class = "display-inline-block">
+			<% players.each do |player| %>
 		
-		<span class="flag-image">	<%= link_to profile_photo(player.user, :thumb, 50), player.user, :rel => "popover", :title => player.user.korean_full_name  %>
-		</span>
+			<li class="flag-image">	<%= link_to profile_photo(player.user, :thumb, 50), player.user, :rel => "popover", :title => player.user.korean_full_name  %>
+			</li>
 		
-		<% end %>
+			<% end %>
+		</ul>
 		</div>
 		
   <% if !admin_signed_in?%>

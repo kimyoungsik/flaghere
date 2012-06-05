@@ -49,3 +49,10 @@ $gray-color3: #aaa;
 /*	padding: 5px;*/
 /*	@include box-shadow(0 2px 2px #ddd);*/
 }
+
+@mixin rounded-corners($radius){  
+  border-radius: $radius;  
+  -moz-border-radius: $radius;  
+  -webkit-border-radius: $radius; 
+	overflow: hidden;
+}

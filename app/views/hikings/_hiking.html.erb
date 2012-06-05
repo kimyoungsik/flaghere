@@ -4,9 +4,9 @@
 	<div class = "main">
 		<div class ="hikingname"> <%= hiking.name %> 
 			<% if (Time.now- hiking.datetime) < 0 and (hiking.hikingparticipations.length < hiking.limit) %>
-				<a class="btn btn-primary" href="hikings/<%= hiking.id %>"><i class="icon-leaf"></i> 대기</a>
+				<a class="btn btn-warning" href="hikings/<%= hiking.id %>"><i class="icon-leaf"></i> 대기</a>
 			<% elsif  (Time.now- hiking.datetime) < 0 and (hiking.hikingparticipations.length >= hiking.limit) %>
-				<a class="btn btn-warning" href="hikings/<%= hiking.id %>"><i class="icon-user"></i> 인원초과</a>
+				<a class="btn btn btn-success" href="hikings/<%= hiking.id %>"><i class="icon-user"></i> 인원초과</a>
 			<% else %>
 				<a class="btn btn-danger" href="hikings/<%= hiking.id %>"><i class="icon-time"></i> 종료</a>
 			<% end %>
