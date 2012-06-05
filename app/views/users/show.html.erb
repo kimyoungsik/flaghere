@@ -1,4 +1,4 @@
-
+<% provide(:title, @user.korean_full_name) %>
 <ul class = "display-inline-block">
 	<li><%= profile_photo(@user, :large, 500) %></li>
 	<li>
@@ -13,7 +13,7 @@
 		<div class ="user_name"><i class="icon-flag"></i> 선봉장 < <%= firstplayers.length %> ></div>
 		<ul class = "display-inline-block">
 			<% firstplayers.each do |firstplayer| %>
-				<li class="flag-image">	<%= link_to flag_photo(firstplayer, :small), flag_path(firstplayer), :rel => "popover", :title => firstplayer.name, "data-content" => "#{firstplayer.date} "  %>
+				<li class="flag-image">	<%= link_to flag_photo(firstplayer, :small), flag_path(firstplayer), :rel => "popover", :title => firstplayer.name, "data-content" => "#{firstplayer.date.strftime("%Y년 %m월 %d일")} "  %>
 				</li>
 			<% end %>
 		</ul>
@@ -28,7 +28,7 @@
 		<div class ="user_name"><i class="icon-flag"></i> <<%= players.length %>> </div>
 		<ul class = "display-inline-block">
 			<% players.each do |player| %>
-				<li class="flag-image">	<%= link_to flag_image(player, :small), flag_path(player.flag), :rel => "popover", :title => player.flag.name, "data-content" => "#{player.flag.date} "  %>
+				<li class="flag-image">	<%= link_to flag_image(player, :small), flag_path(player.flag), :rel => "popover", :title => player.flag.name, "data-content" => "#{player.flag.date.strftime("%Y년 %m월 %d일")} "  %>
 				</li>
 			<% end %>
 		</ul>
@@ -40,7 +40,7 @@
 <div id ="flagplayer" class ="well">
 	<% hikingplayers =  @user.hikingparticipations.all %>
 	<% if hikingplayers.length > 0 || @user != current_user%>
-		<div class ="user_name"><i class="icon-flag"></i> <<%= hikingplayers.length %>> </div>
+		<div class ="user_name">FlagHere에서 참여한 산행 <<%= hikingplayers.length %>> </div>
 		<ul class = "display-inline-block">
 			<% hikingplayers.each do |hikingplayer| %>
 				<li class="flag-image">	<%= link_to hiking_image(hikingplayer.hiking, :small), hiking_path(hikingplayer.hiking), :rel => "popover", :title => hikingplayer.hiking.name, "data-content" => "#{hikingplayer.hiking.datetime.strftime("%Y년 %m월 %d일")} "  %>
@@ -52,12 +52,20 @@
 		<% end %>		
 </div>
 
-
-
-
-
-
-<%= render 'kits/form' %>
+<table class="table">
+	<thead>
+		<tr>
+			<th class ="name"><i class="icon-comment"></i></th>
+			<th></th>
+		</tr>
+	</thead>
+  <tbody>
+     <tr>
+			<td><%= profile_photo(current_user, :thumb, 80) %></td>
+			<%= render 'kits/form' %>
+     </tr>
+  </tbody>
+</table>
 
 <div id="kits">
 	<%= render @kits %>

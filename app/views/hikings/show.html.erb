@@ -1,3 +1,4 @@
+<% provide(:title, @hiking.name) %>
 <div class ="center"> <%= image_tag @hiking.hikingphoto.url(:large) %> 
 
 	<table class="table">
@@ -31,7 +32,7 @@
 	</thead>
   <tbody>
      <tr>
-			<td><%= profile_photo(current_user, :small, 80) %></td>
+			<td><%= profile_photo(current_user, :thumb, 80) %></td>
 			<%= render 'kits/form' %>
      </tr>
   </tbody>

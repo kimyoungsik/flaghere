@@ -10,7 +10,7 @@ module ApplicationHelper
         image_tag(user.facebook_profile_photo)
       end
     elsif user.avatar_file_name
-      image_tag(user.avatar.url(size), :width => width)
+      image_tag(user.avatar.url(size))
     else
       image_tag('/assets/default_profile.png', :width => width)
     end
@@ -27,5 +27,14 @@ module ApplicationHelper
   def flag_photo(image, size)
     image_tag(image.photo.url(size))
   end
+  
+  def full_title(page_title)
+     base_title = "FlagHere"
+     if page_title.empty?
+       base_title
+     else
+       "#{page_title}"
+     end
+   end
   
 end

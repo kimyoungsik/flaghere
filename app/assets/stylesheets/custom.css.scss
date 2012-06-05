@@ -33,6 +33,8 @@
 #flagsuccess, #flagsuccessform {
 	
 	background:  #f3edd2;
+	padding : 7px 0px 0px 26px;
+	
 }
 
 #hikingparticipants {
@@ -50,7 +52,9 @@
 	}
 }
 
-
+#flag_description {
+	font-size: 20px;
+}
 
 #kit_content {
 	width: 800px;
@@ -61,6 +65,7 @@
 	background: #dff0d8;
 	width: 700px;
 	height: 60px;
+	padding :  0px 0px 22px 3px
 }
 
 .comment-textarea {
@@ -79,16 +84,34 @@ ul.display-inline-block li {
 	display: inline-block;
 
 }
-#kit-delete, #comment-delete {
+#kit-delete {
 	float: right;
+	padding : 5px 0px 0px 0px;
+	margin : 0px 26px 0px 0px;
+}
+#comment-delete {
+	float: right;
+	padding : 5px 0px 0px 0px;
+	margin : 0px 26px 0px 0px;
 }
 
-.flag-image {
-	margin: 0 7px 13px 0;
-	@include rounded-corners(6px);
+
+ul.display-inline-block{
+	.flag-image {
+		margin: 0 0 13px 0;
+		@include rounded-corners(6px);
+
+	}
+	.kit-image {
+		margin: 0 7px 7px 0;
+		@include rounded-corners(6px);
+	}
 	
-}
 
+}
+#comment-display {
+	margin-left: 70px;
+}
 
 
 .displays {
@@ -140,13 +163,14 @@ margin-bottom: 20px;
 
 
 
+/* user -index */
 
 .user_displays {
 	display: block;
 }
 
 .user_displays .episode {
-padding-bottom: 10px;
+padding-bottom: 15px;
 border-bottom: solid 1px #E5E5E5;
 margin-bottom: 20px;
 
@@ -180,7 +204,7 @@ margin-bottom: 20px;
 	}
 	a:hover {
 		background :#FFFFFF; 
-		color: #62c462
+		color: #c09853;
 	}
 }
 
@@ -191,7 +215,25 @@ margin-bottom: 20px;
 }
 
 
+/* search */
 
+#search {
+	@include rounded-corners(6px);
+}
+
+.picture-round{
+	@include rounded-corners(6px);
+
+}
+
+
+#kit-item {
+	padding : 11px 0px 0px 10px;
+}
+
+#kit-delete {
+
+}
 
 
 

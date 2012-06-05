@@ -15,7 +15,7 @@ class HikingsController < ApplicationController
   def show
     @hiking = Hiking.find(params[:id])
     
-    @kits = @hiking.kits.page(params[:page]).per(20)
+    @kits = @hiking.kits.page(params[:page]).per(10)
     @kit = @hiking.kits.build
     respond_to do |format|
       format.html # show.html.erb

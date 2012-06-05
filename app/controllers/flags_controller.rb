@@ -15,7 +15,7 @@ class FlagsController < ApplicationController
   # GET /flags/1.json
   def show
     @flag = Flag.find(params[:id])
-    @kits = @flag.kits.page(params[:page]).per(5)
+    @kits = @flag.kits.page(params[:page]).per(10)
     @kit = @flag.kits.build
     respond_to do |format|
       format.html # show.html.erb

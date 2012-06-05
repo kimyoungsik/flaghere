@@ -5,8 +5,8 @@
 	</div>
 <% end %>
 
-<ul class = "display-inline-block">
-	<li><%= link_to profile_photo(comment.user, :small, 60), comment.user  %></li>
+<ul class = "display-inline-block" id = "comment-display">
+	<li class ="kit-image"><%= link_to profile_photo(comment.user, :thumb, 60), comment.user  %></li>
 	<li>
 		<div><%= comment.user.korean_full_name %></div>
   	<div class="timestamp">
