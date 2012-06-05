@@ -5,6 +5,19 @@
   font-size: 20px;
  	margin: 3px 3px 3px 0;
 }
+.hikingname {
+  color: #08c;
+	font-weight: bold;
+  font-size: 20px;
+ 	margin: 3px 3px 3px 0;
+}
+
+.user_name {
+  color: #555;
+  font-size: 20px;
+ 	margin: 3px 3px 10px 0;
+
+}
 
 .center {
 	margin-left:auto;
@@ -18,7 +31,7 @@
 }
 
 #flagsuccess, #flagsuccessform {
-
+	
 	background:  #f3edd2;
 }
 
@@ -27,9 +40,16 @@
 }
 
 #firstplayer, #flagplayer{
-
-	background: none;
+	margin: 3px 3px 10px 0;
+	background: #eee;
+	
+	.flag-image{
+		
+		margin: 0 7px 13px 0;
+	
+	}
 }
+
 
 
 #kit_content {
@@ -74,7 +94,7 @@ ul.display-inline-block li {
 }
 
 .displays .episode {
-padding-bottom: 110px;
+padding-bottom: 50px;
 border-bottom: solid 1px #E5E5E5;
 margin-bottom: 20px;
 
@@ -115,6 +135,59 @@ margin-bottom: 20px;
 	margin-bottom: 17px;
 	font-size: 16px;
 }
+
+
+
+
+.user_displays {
+	display: block;
+}
+
+.user_displays .episode {
+padding-bottom: 10px;
+border-bottom: solid 1px #E5E5E5;
+margin-bottom: 20px;
+
+}
+
+.user_displays .shot {
+	float: left;
+	margin-right: 10px;
+}
+
+.user_displays .main {
+	margin-left: 75px;
+}
+
+
+.user_displays .info {
+	color: #999;
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
+.user_displays .name {
+
+  font-size: 15px;
+ 	margin: 3px 0;
+	font-weight: bold;
+	
+	a:visited {
+		color: #555;
+	}
+	a:hover {
+		background :#FFFFFF; 
+		color: #62c462
+	}
+}
+
+.user_displays .description {
+	margin-bottom: 17px;
+	font-size: 16px;
+	
+}
+
+
 
 
 

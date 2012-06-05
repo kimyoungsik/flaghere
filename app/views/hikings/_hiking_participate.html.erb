@@ -3,7 +3,7 @@
 		<% players =  @hiking.hikingparticipations.all %>
 		<% players.each do |player| %>
 		
-		<span class="flag-image">	<%= link_to profile_photo(player.user, :thumb, 50), player.user, :rel => "popover", :title => player.user.email  %>
+		<span class="flag-image">	<%= link_to profile_photo(player.user, :thumb, 50), player.user, :rel => "popover", :title => player.user.korean_full_name  %>
 		</span>
 		
 		<% end %>

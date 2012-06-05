@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   before_filter :store_location, :only => [:show]
   def index
-    @users = User.all
+    @users = User.order("id").page(params[:page]).per(10)
   end
 
   def show
     @user = User.find(params[:id])
-    @kits = @user.kits.page(params[:page]).per_page(20)
+    @kits = @user.kits.page(params[:page]).per(20)
     @kit = @user.kits.build
   end
   

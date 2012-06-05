@@ -20,7 +20,6 @@ module ApplicationHelper
     image_tag(image.picture.url(size))
   end
   
-  
   def hiking_image(image, size)
     image_tag(image.hikingphoto.url(size))
   end

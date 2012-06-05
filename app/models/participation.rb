@@ -9,7 +9,7 @@ class Participation < ActiveRecord::Base
   validates :flag_id, :presence => true
   validates_uniqueness_of :user_id, :scope => [:flag_id]
   
-  has_attached_file :picture, :styles => { :thumb =>  "50x50#", :small => "150x150>", :large => "640x640>" },
+  has_attached_file :picture, :styles => { :thumb =>  "50x50#", :small => "150x150#", :large => "640x640>" },
   :url => "/assets/participations/:id/:style/:basename.:extension",
   :path => ":rails_root/public/assets/participations/:id/:style/:basename.:extension"
 

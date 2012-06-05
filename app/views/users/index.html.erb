@@ -1,19 +1,5 @@
 
-<table class="table">
-  <thead>
-    <tr>
-			<th></th>
-      <th>이름</th>
-			<th><i class="icon-flag"></i></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>     
-			<tr>
-				<td><%= profile_photo(user, :thumb, 50) %></td>
-        <td><%= link_to user.email, user_path(user) %></td>
-				<td><%= user.participations.length + user.flags.length %></td>
-      </tr>
-		<% end %>
-  </tbody>
-</table>
+<div class="user_displays">
+	<%= render @users %>
+</div>
+<%= paginate @users %>

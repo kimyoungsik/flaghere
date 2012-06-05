@@ -1,3 +1,4 @@
+#encoding:utf-8
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -51,6 +52,13 @@ class User < ActiveRecord::Base
                     :facebook_uid => data.id,
                     :facebook_token => access_token.credentials.token,
                     :password => Devise.friendly_token[0,20]) 
+    end
+  end
+  def korean_full_name
+    if( last_name and first_name)
+      last_name + first_name
+    else
+      "ㅇㅇㅇ"
     end
   end
   

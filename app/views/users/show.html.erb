@@ -2,33 +2,55 @@
 <ul class = "display-inline-block">
 	<li><%= profile_photo(@user, :large, 500) %></li>
 	<li>
-		<div class ="name"> <%= @user.email %></div>
+		<div class ="user_name"> <%= @user.korean_full_name %> <<i class="icon-flag"></i> <%= @user.participations.length + @user.flags.length %>></div>
 		<div><a class="btn btn-warning" type="button" href="edit"><i class="icon-camera"></i></a></div>
 	</li>
 </ul>
 
 <div id ="firstplayer" class ="well">
 	<% firstplayers = @user.flags.all %>
-	<div class ="name"> <%= firstplayers.length %>개의 <i class="icon-flag"></i> 선봉장이 되었습니다.</div>
-	<% firstplayers.each do |firstplayer| %>
-	
-		<span class="flag-image">	<%= link_to flag_photo(firstplayer, :small), '#', :rel => "popover", :title => firstplayer.name, "data-content" => "#{firstplayer.date} "  %>
-		</span>
-	
+	<% if firstplayers.length > 0 || @user != current_user%>
+		<div class ="user_name"><i class="icon-flag"></i> 선봉장 < <%= firstplayers.length %> ></div>
+		<ul class = "display-inline-block">
+			<% firstplayers.each do |firstplayer| %>
+				<li class="flag-image">	<%= link_to flag_photo(firstplayer, :small), flag_path(firstplayer), :rel => "popover", :title => firstplayer.name, "data-content" => "#{firstplayer.date} "  %>
+				</li>
+			<% end %>
+		</ul>
+	<% else %>
+		<div class ="user_name"> <%= link_to "선봉장이 되어보세요.", new_flag_path %> </div>
 	<% end %>
 </div>
 
 <div id ="flagplayer" class ="well">
 	<% players =  @user.participations.all %>
-	<div class ="name"><%= players.length %>개의 <i class="icon-flag"></i> 정상에 깃발을 꽂았습니다.</div>
-	<% players.each do |player| %>
-	
-		<span class="flag-image">	<%= link_to flag_image(player, :small), '#', :rel => "popover", :title => player.flag.name, "data-content" => "#{player.flag.date} "  %>
-		</span>
-	<% end %>
+	<% if players.length > 0 || @user != current_user%>
+		<div class ="user_name"><i class="icon-flag"></i> <<%= players.length %>> </div>
+		<ul class = "display-inline-block">
+			<% players.each do |player| %>
+				<li class="flag-image">	<%= link_to flag_image(player, :small), flag_path(player.flag), :rel => "popover", :title => player.flag.name, "data-content" => "#{player.flag.date} "  %>
+				</li>
+			<% end %>
+		</ul>
+		<% else %>
+			<div class ="user_name"> <%= link_to "깃발을 꽂아보세요.", flags_path %> </div>
+		<% end %>		
 </div>
 
-
+<div id ="flagplayer" class ="well">
+	<% hikingplayers =  @user.hikingparticipations.all %>
+	<% if hikingplayers.length > 0 || @user != current_user%>
+		<div class ="user_name"><i class="icon-flag"></i> <<%= hikingplayers.length %>> </div>
+		<ul class = "display-inline-block">
+			<% hikingplayers.each do |hikingplayer| %>
+				<li class="flag-image">	<%= link_to hiking_image(hikingplayer.hiking, :small), hiking_path(hikingplayer.hiking), :rel => "popover", :title => hikingplayer.hiking.name, "data-content" => "#{hikingplayer.hiking.datetime.strftime("%Y년 %m월 %d일")} "  %>
+				</li>
+			<% end %>
+		</ul>
+		<% else %>
+			<div class ="user_name"> <%= link_to "등산모임에 참여해보세요.", hikings_path %> </div>
+		<% end %>		
+</div>
 
 
 

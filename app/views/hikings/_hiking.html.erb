@@ -2,7 +2,7 @@
 <div class = "episode">
 	<div class = "shot"><%= image_tag hiking.hikingphoto.url(:small) %></div>
 	<div class = "main">
-		<div class ="name"> <%= hiking.name %> 
+		<div class ="hikingname"> <%= hiking.name %> 
 			<% if (Time.now- hiking.datetime) < 0 and (hiking.hikingparticipations.length < hiking.limit) %>
 				<a class="btn btn-primary" href="hikings/<%= hiking.id %>"><i class="icon-leaf"></i> 대기</a>
 			<% elsif  (Time.now- hiking.datetime) < 0 and (hiking.hikingparticipations.length >= hiking.limit) %>

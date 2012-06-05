@@ -1,0 +1,11 @@
+
+<div class = "episode">
+	<div class = "shot"><%= profile_photo(user, :thumb, 50) %></div>
+	<div class = "main">
+		<div class ="name"> <%= link_to user.korean_full_name, user_path(user) %>
+			
+		</div> 
+		<div><i class="icon-flag"></i> <%= user.participations.length + user.flags.length %></div>
+		
+	</div>
+</div>

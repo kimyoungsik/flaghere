@@ -8,7 +8,7 @@
 <ul class = "display-inline-block">
 	<li><%= link_to profile_photo(comment.user, :small, 60), comment.user  %></li>
 	<li>
-		<div><%= comment.user.email %></div>
+		<div><%= comment.user.korean_full_name %></div>
   	<div class="timestamp">
     	<%= time_ago_in_words(comment.created_at) %> 전.
   	</div>
