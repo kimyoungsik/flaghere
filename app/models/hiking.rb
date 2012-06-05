@@ -15,7 +15,7 @@ class Hiking < ActiveRecord::Base
   validates_attachment_size :hikingphoto, :less_than => 5.megabytes
   validates_attachment_content_type :hikingphoto, :content_type => ['image/jpeg', 'image/png']
 
-  default_scope :order => 'hikings.updated_at '
+  default_scope :order => 'hikings.datetime DESC '
   
 
 end
