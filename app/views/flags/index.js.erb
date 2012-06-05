@@ -1,0 +1,6 @@
+$('.flags').append('<%= j render(@flags) %>');
+<% if @flags.next_page %>
+	$('.pagination').replaceWith('<%= j will_paginate(@flags) %>');
+<% else %>
+	$('.pagination').remove();
+<% end %>

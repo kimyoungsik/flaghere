@@ -27,9 +27,7 @@
 	          
 	        </ul>
 					<ul class="nav pull-right">
-							<% unless admin_signed_in? || user_signed_in? %>
-								<li><%= link_to image_tag('login-facebook.png'), user_omniauth_authorize_path(:facebook) %></li>
-						  <% end %>
+	
 							<li class="dropdown" id="menu1">
 						    <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
 									 <i class="icon-user icon-white"></i> User
@@ -39,6 +37,9 @@
 							
 						      <li><%= render 'devise/menu/login_items' %></li>
 						      <li><%= render 'devise/menu/registration_items' %></li>
+									<% if admin_signed_in? || user_signed_in? %>
+										<li><%= link_to "나의 페이지", user_path(current_user) %></li>
+									<% end %>
 						    </ul>
 						  </li>
 

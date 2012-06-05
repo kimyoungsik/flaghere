@@ -1,5 +1,7 @@
 Flaghere::Application.routes.draw do
 
+  get "gettingstarted/step1"
+  
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :admins, :path_prefix => 'd'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -15,6 +17,7 @@ Flaghere::Application.routes.draw do
   resources :kits
   resources :hikings
   resources :comments
+  resources :gettingstarted
   
   match '/kits/:id/view_all_comments', :to => 'kits#view_all_comments'
   # The priority is based upon order of creation:

@@ -3,11 +3,10 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-  $("#flag_description").elastic();
   if $('.pagination').length
-    $(window).scroll ->
-      url = $('.pagination .next_page').attr('href')
-      if url && $(window).scrollTop() > $(document).height() - $(window).height() - 50
-        $('.pagination').text("Loading...")
-        $.getScript(url)
+          $(window).scroll ->
+                  url = $('.pagination .next_page').attr('href')
+                  if url &&  $(window).scrollTop() > $(document).height() - $(window).height() - 50
+                          $('.pagination').text('Fetching more products...')
+                          $.getScript(url)
     $(window).scroll()

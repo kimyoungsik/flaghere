@@ -1,0 +1,10 @@
+<div class = "well">
+	<div>
+		<%= simple_form_for(current_user, :as => :user, :url => gettingstarted_path(current_user)) do |f| %>
+			<%= f.input :last_name,:label => '성' %>
+			<%= f.input :first_name,:label => '이름' %>
+			<%= f.input :avatar,:label => '본인사진' %>
+			<%= f.submit %>
+		<% end %>
+	</div>
+</div>

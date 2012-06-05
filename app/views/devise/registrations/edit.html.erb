@@ -9,8 +9,10 @@
     <%= f.input :password_confirmation, :required => false %>
     <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
   </div>
+		<%= f.input :last_name,:label => '성' %>
+		<%= f.input :first_name,:label => '이름' %>
 		
-		<%= f.input :avatar %>
+		<%= f.input :avatar,:label => '본인사진' %>
   <div class="actions">
     <%= f.button :submit, "Update" %>
   </div>

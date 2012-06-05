@@ -9,7 +9,7 @@ class CreateHikings < ActiveRecord::Migration
       t.text :description
       t.integer :limit
       t.integer :money
-      t.string :status, :default => 'progress'
+     
       t.has_attached_file :hikingphoto
       
       t.timestamps

@@ -1,10 +1,12 @@
 class FlagsController < ApplicationController
   before_filter :store_location, :only => [:show]
+  # helper_method :sort_column, :sort_direction
   # GET /flags
   # GET /flags.json
   def index
-    @flags = Flag.all
-    
+    # @flags = Flag.all
+    @flags = Flag.search(params[:search]).order("id").page(params[:page]).per(5)
+     # @flags = Flag.order("id").page(:page => 10, :page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @flags }
@@ -15,7 +17,7 @@ class FlagsController < ApplicationController
   # GET /flags/1.json
   def show
     @flag = Flag.find(params[:id])
-    @kits = @flag.kits.page(params[:page]).per_page(20)
+    @kits = @flag.kits.page(params[:page]).per_page(5)
     @kit = @flag.kits.build
     respond_to do |format|
       format.html # show.html.erb
@@ -88,4 +90,14 @@ class FlagsController < ApplicationController
   def store_location
       session[:return_to] = request.fullpath
   end
+  
+
+  # 
+  # def sort_column
+  #   Flag.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  # end
+  # 
+  # def sort_direction
+  #   %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  # end
 end

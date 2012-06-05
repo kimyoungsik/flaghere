@@ -70,13 +70,12 @@ ActiveRecord::Schema.define(:version => 20120602141726) do
     t.text     "description"
     t.integer  "limit"
     t.integer  "money"
-    t.string   "status",                   :default => "progress"
     t.string   "hikingphoto_file_name"
     t.string   "hikingphoto_content_type"
     t.integer  "hikingphoto_file_size"
     t.datetime "hikingphoto_updated_at"
-    t.datetime "created_at",                                       :null => false
-    t.datetime "updated_at",                                       :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "kits", :force => true do |t|

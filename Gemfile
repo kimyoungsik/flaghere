@@ -30,7 +30,7 @@ gem "omniauth-facebook"
 gem 'simple_form'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'rails_autolink'
-gem 'will_paginate'
+gem 'kaminari'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

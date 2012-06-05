@@ -9,7 +9,7 @@
   </thead>
   <tbody>
     <% @hikings.each do |hiking| %>
-			<% if hiking.status == 'progress'%>
+			<% if (Time.now- hiking.datetime) < 0 %>
       <tr>
         <td><%= image_tag hiking.hikingphoto.url(:small) %></td>
         <td>

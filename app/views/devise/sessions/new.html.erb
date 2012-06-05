@@ -1,5 +1,5 @@
-<h2>Sign in</h2>
 
+<div class ="name"> 로그인 </div><br>
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div class="inputs">
     <%= f.input :email, :required => false, :autofocus => true %>
@@ -12,4 +12,8 @@
   </div>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+<%= render :partial => "devise/shared/links" %><br>
+
+
+<div class ="name"> 페이스북으로 로그인 </div><br>
+<%= link_to image_tag('login-facebook.png'), user_omniauth_authorize_path(:facebook) %>

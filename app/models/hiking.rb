@@ -1,5 +1,5 @@
 class Hiking < ActiveRecord::Base
-  attr_accessible :datetime, :description, :limit, :location, :name, :province_id, :status, :user_id, :hikingphoto, :money
+  attr_accessible :datetime, :description, :limit, :location, :name, :province_id, :user_id, :hikingphoto, :money
   
   belongs_to :user
   has_many :hikingparticipations, :dependent => :destroy
@@ -14,4 +14,6 @@ class Hiking < ActiveRecord::Base
   validates_attachment_presence :hikingphoto
   validates_attachment_size :hikingphoto, :less_than => 5.megabytes
   validates_attachment_content_type :hikingphoto, :content_type => ['image/jpeg', 'image/png']
+
+  default_scope :order => 'hikings.updated_at '
 end
