@@ -5,7 +5,7 @@ class FlagsController < ApplicationController
   # GET /flags.json
   def index
     # @flags = Flag.all
-    @flags = Flag.search(params[:search]).order("id").page(params[:page]).per(5)
+    @flags = Flag.search(params[:search]).order("id").page(params[:page]).per(10)
      # @flags = Flag.order("id").page(:page => 10, :page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +17,7 @@ class FlagsController < ApplicationController
   # GET /flags/1.json
   def show
     @flag = Flag.find(params[:id])
-    @kits = @flag.kits.page(params[:page]).per_page(5)
+    @kits = @flag.kits.page(params[:page]).per(5)
     @kit = @flag.kits.build
     respond_to do |format|
       format.html # show.html.erb

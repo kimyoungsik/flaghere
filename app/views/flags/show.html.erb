@@ -35,7 +35,7 @@
 <div id="kits">
 	<%= render @kits %>
 </div>
-<%= will_paginate @kits %>
+<%= paginate @kits %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

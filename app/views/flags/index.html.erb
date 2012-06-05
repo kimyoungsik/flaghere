@@ -1,6 +1,4 @@
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_flag_path,
-            :class => 'btn btn-primary' %>
+
 
 <%= form_tag flags_path, :method => 'get' do %>
   <p>
@@ -10,9 +8,12 @@
 <% end %>
 
 
-
+		
 <div class="flags">
 	<%= render @flags %>
 </div>
 <%= paginate @flags %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_flag_path,
+            :class => 'btn btn-primary' %>
 

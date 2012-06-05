@@ -1,19 +1,19 @@
-	<tr>
-    <td><%= image_tag flag.photo.url(:small) %></td>
-    <td>
-		<div> FLAG #<%= flag.id %> <%= flag.date %> (<%= Province.find_by_id(flag.province_id).name %>)</div>
-		<div class ="name"> <%= flag.name %> <a class="btn btn-success" href="flags/<%= flag.id %>"><i class="icon-flag icon-white"></i></a></div> 
-		<div><%= flag.description.gsub(/<\/?.*?>/, "").html_safe %></div>
-		<div></div>
-		</td>
+	<div class = "episode">
+		<div class = "flagshot"><%= image_tag flag.photo.url(:small) %></div>
+		<div class = "flagmain">
+			<div class ="info"> FLAG #<%= flag.id %> <%= flag.date %> (<%= Province.find_by_id(flag.province_id).name %>)</div>
+			<div class ="flagname"> <%= link_to flag.name, flag_path(flag) %> </div> 
+			<div class ="description"><%= flag.description.gsub(/<\/?.*?>/, "").html_safe %></div>
 
-    <td>
-      <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                  edit_flag_path(flag), :class => 'btn btn-mini' %>
-      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                  flag_path(flag),
-                  :method => :delete,
-                  :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                  :class => 'btn btn-mini btn-danger' %>
-    </td>
-  </tr>
+
+	    <div>
+	      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+	                  edit_flag_path(flag), :class => 'btn btn-mini' %>
+	      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+	                  flag_path(flag),
+	                  :method => :delete,
+	                  :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+	                  :class => 'btn btn-mini btn-danger' %>
+	    </div>
+		</div>
+	</div>

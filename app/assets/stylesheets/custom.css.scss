@@ -48,6 +48,8 @@
 }
 
 
+
+
 .timestamp {
   color: #62c462;
 }
@@ -64,6 +66,55 @@ ul.display-inline-block li {
 .flag-image {
 	margin: 0 3px 3px 0;
 }
+
+
+.flags {
+	display: block;
+}
+
+.flags .episode {
+padding-bottom: 110px;
+border-bottom: solid 1px #E5E5E5;
+margin-bottom: 20px;
+
+}
+
+.flags .flagshot {
+	float: left;
+	margin-right: 30px;
+}
+
+.flags .main {
+	margin-left: 215px;
+}
+
+
+.flags .info {
+	color: #999;
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
+.flags .flagname {
+	color: #62c462;
+  font-size: 30px;
+ 	margin: 3px 0;
+	font-weight: bold;
+	margin-bottom: 20px;
+	a:visited {
+		color: #62c462;
+	}
+	a:hover {
+		background :#FFFFFF; 
+		color: #62c462
+	}
+}
+
+.flags .description {
+	margin-bottom: 17px;
+	font-size: 16px;
+}
+
 
 
 
