@@ -1,3 +1,4 @@
+#encoding:utf-8
 class HikingsController < ApplicationController
   before_filter :store_location, :only => [:show]
   # GET /hikings
@@ -45,6 +46,14 @@ class HikingsController < ApplicationController
     @hiking = current_user.hikings.build(params[:hiking])
     respond_to do |format|
       if @hiking.save
+        if current_user.facebook_uid and current_user.facebook_connect
+          @graph.put_wall_post("정상등반을 준비중입니다. 함꼐가요 !! with 망고마운틴", {
+            :name => @hiking.name, 
+            :picture => request.protocol + request.host + @hiking.hikingphoto.url,
+            :link => request.protocol + request.host + hiking_path(@hiking),
+            :caption => @hiking.user.korean_full_name,
+            :description => "#{@hiking.datetime.strftime("%Y년 %m월 %d일 %H시 %M분 출발")}-#{@hiking.location}" })
+        end
         format.html { redirect_to @hiking, notice: 'Hiking was successfully created.' }
         format.json { render json: @hiking, status: :created, location: @hiking }
       else

@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :birthday, :gender, :facebook_uid, :facebook_token,:avatar
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :birthday, :gender, :facebook_uid, :facebook_token, :avatar, :facebook_connect
   
   has_attached_file :avatar, :styles => { :thumb =>  "50x50#", :small => "150x150>", :large => "640x640>" },
     :url => "/assets/users/:id/:style/:basename.:extension",

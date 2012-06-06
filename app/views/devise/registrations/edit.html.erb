@@ -9,11 +9,7 @@
 	    <%= f.input :password, :autocomplete => "off", :hint => "변경을 원하지 않으면 빈칸으로 남겨두세요", :required => false %>
 	    <%= f.input :password_confirmation, :required => false %>
 	    <%= f.input :current_password, :hint => "정보를 수정하려면 현재 비밀번호를 입력해주세요", :required => true %>
-	  </div>
-			<%= f.input :last_name,:label => '성' %>
-			<%= f.input :first_name,:label => '이름' %>
-		
-			<%= f.input :avatar,:label => '본인사진' %>
+		</div>
 	  <div class="actions">
 	    <%= f.button :submit, "수정" %>
 	  </div>

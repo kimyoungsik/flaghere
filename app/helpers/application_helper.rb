@@ -3,14 +3,14 @@ module ApplicationHelper
   
   def profile_photo (user, size, width)
     
-    if user.facebook_profile_photo
+    if user.avatar_file_name
+      image_tag(user.avatar.url(size))
+    elsif user.facebook_profile_photo
       if size == :large
         image_tag(user.facebook_profile_photo_large)
       else
         image_tag(user.facebook_profile_photo)
       end
-    elsif user.avatar_file_name
-      image_tag(user.avatar.url(size))
     else
       image_tag('/assets/default_profile.png', :width => width)
     end

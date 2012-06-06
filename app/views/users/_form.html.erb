@@ -1,0 +1,16 @@
+<div class = "well">
+<%= simple_form_for @user, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
+	<%= f.input :last_name,:label => '성' %>
+	<%= f.input :first_name,:label => '이름' %>
+	<% if current_user.facebook_uid %>
+		<div><%= f.check_box :facebook_connect%> facebook 연동 여부 (체크할 시에는 '참가 및 선봉장'이 되었을 때 facebook에 자동으로 포스팅 됩니다.)</div><br>
+	<% end %>
+
+	<%= f.input :avatar,:label => '본인사진' %>
+  <div class="form-actions">
+    <%= f.submit ' 완료 ', :class => 'btn-primary' %>
+    <%= link_to "취소",
+                hikings_path, :class => 'btn' %>
+  </div>
+<% end %>
+</div>

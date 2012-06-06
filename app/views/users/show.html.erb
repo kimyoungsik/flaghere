@@ -7,10 +7,10 @@
 				<%= link_to "#{@user.korean_full_name} 님의 페이스북", "http://www.facebook.com/profile.php?id=#{@user.facebook_uid}", 
 				:target => '_blank', :class => "item-link" %>
 			<% end %>
-			<%= @graph.get_object(@user.facebook_uid) %>
+			
 			
 		<% if admin_signed_in? or current_user == @user %>
-			<div><a class="btn btn-warning" type="button" href="edit"><i class="icon-camera"></i></a></div>
+			<div><%= link_to "사진 및 개인정보 수정", edit_user_path(@user)%></div>
 		<% end %>
 	</li>
 </ul>

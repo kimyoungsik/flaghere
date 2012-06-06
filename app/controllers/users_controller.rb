@@ -8,7 +8,27 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @kits = @user.kits.page(params[:page]).per(20)
     @kit = @user.kits.build
-    @graph = Koala::Facebook::API.new(@user.facebook_token) # 1.2beta and beyond
+    
+  end
+  
+  # GET /kits/1/edit
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+
+    
+    respond_to do |format|
+       if @user.update_attributes(params[:user])
+         format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
+         format.json { respond_with_bip(@user) }
+       else
+         format.html { render :action => "edit" }
+         format.json { respond_with_bip(@user) }
+       end
+    end     
   end
   
   private

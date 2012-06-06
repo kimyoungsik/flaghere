@@ -21,6 +21,7 @@ en:
       invalid_token: '잘못된 인증 토큰 입니다.'
       timeout: '세션이 만료되어습니다, 계속하시려면 로그인해주세요.'
       inactive: '계정이 아직 활성화 되지 않았습니다. '
+      
     sessions:
       signed_in: '성공적으로 로그인 하셨습니다.'
       signed_out: '성공적으로 로그아웃 하셨습니다.'

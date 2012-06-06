@@ -1,3 +1,4 @@
+#encoding:utf-8
 class FlagsController < ApplicationController
   before_filter :store_location, :only => [:show]
   skip_before_filter :authenticate_user!, :only => [:index] 
@@ -46,6 +47,16 @@ class FlagsController < ApplicationController
 
     respond_to do |format|
       if @flag.save
+        
+        if current_user.facebook_uid and current_user.facebook_connect
+           @graph.put_wall_post("첫 등반 성공한 선봉장이 되었습니다! 축하해주세요~ with 망고마운틴", {
+             :name => @flag.name, 
+             :picture => request.protocol + request.host + @flag.photo.url,
+             :link => request.protocol + request.host + flag_path(@flag),
+             :caption => @flag.user.korean_full_name,
+             :description => "#{@flag.date.strftime("%Y년 %m월 %d일")}-#{@flag.description}" })
+         end
+         
         format.html { redirect_to @flag, notice: 'Flag was successfully created.' }
         format.json { render json: @flag, status: :created, location: @flag }
       else
