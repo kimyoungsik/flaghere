@@ -1,9 +1,11 @@
 <% provide(:title, @user.korean_full_name) %>
 <ul class = "display-inline-block">
-	<li><%= profile_photo(@user, :large, 500) %></li>
+	<li class = "img-round"><%= profile_photo(@user, :large, 500) %></li>
 	<li>
 		<div class ="user_name"> <%= @user.korean_full_name %> <<i class="icon-flag"></i> <%= @user.participations.length + @user.flags.length %>></div>
-		<div><a class="btn btn-warning" type="button" href="edit"><i class="icon-camera"></i></a></div>
+		<% if admin_signed_in? or current_user == @user %>
+			<div><a class="btn btn-warning" type="button" href="edit"><i class="icon-camera"></i></a></div>
+		<% end %>
 	</li>
 </ul>
 

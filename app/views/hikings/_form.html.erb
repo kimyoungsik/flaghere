@@ -2,7 +2,7 @@
   <%= f.hidden_field :user_id %>
   <%= f.input :province_id, :collection => Province.all ,:label => '도/특별시' %>
   <%= f.input :name, :label => '산 명칭' %>
-  <%= f.input :datetime, :label => '출발 일시' %>
+  <%= f.input :datetime, :label => '출발 일시',:use_month_numbers => true %>
   <%= f.input :location, :label => '출발 장소' %>
 	<%= f.input :money, :label => '회비' %>
   <%= f.input :description, :label => '비고&준비물' %>
@@ -10,8 +10,8 @@
 	<%= f.input :hikingphoto, :label => '사진' %>
 	
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+    <%= f.submit ' 완료 ', :class => 'btn-primary' %>
+    <%= link_to "취소",
                 hikings_path, :class => 'btn' %>
   </div>
 <% end %>

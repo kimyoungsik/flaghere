@@ -8,7 +8,7 @@
 		<li>
 			<div><%= kit.user.korean_full_name %></div>
 	  	<div class="timestamp">
-	    	<%= time_ago_in_words(kit.created_at) %> ago.
+	    	<%= time_ago_in_words(kit.created_at) %> 전.
 	  	</div>
 		</li>
 		<div class="content"><%= auto_link(kit.content.gsub(/\n/, "<br />").html_safe) %></div>

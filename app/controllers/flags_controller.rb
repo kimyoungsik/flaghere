@@ -1,6 +1,6 @@
 class FlagsController < ApplicationController
   before_filter :store_location, :only => [:show]
-
+  skip_before_filter :authenticate_user!, :only => [:index] 
   # GET /flags
   # GET /flags.json
   def index

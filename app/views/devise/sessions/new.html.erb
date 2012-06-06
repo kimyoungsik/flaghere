@@ -1,4 +1,4 @@
-
+<div class = "well">
 <div class ="name"> 로그인 </div><br>
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div class="inputs">
@@ -8,12 +8,13 @@
   </div>
 
   <div class="actions">
-    <%= f.button :submit, "Sign in" %>
+    <%= f.button :submit, "로그인" %>
   </div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %><br>
-
-
+</div>
+<div class = "well">
 <div class ="name"> 페이스북으로 로그인 </div><br>
 <%= link_to image_tag('login-facebook.png'), user_omniauth_authorize_path(:facebook) %>
+</div>

@@ -37,15 +37,16 @@
 	<%= render @kits %>
 </div>
 <%= paginate @kits %>
-
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              flags_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_flag_path(@flag), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              flag_path(@flag),
-              :method => 'delete',
-              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-              :class => 'btn btn-danger' %>
-</div>
+<% if admin_signed_in? %>
+	<div class="form-actions">
+	  <%= link_to t('.back', :default => t("helpers.links.back")),
+	              flags_path, :class => 'btn'  %>
+	  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+	              edit_flag_path(@flag), :class => 'btn' %>
+	  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+	              flag_path(@flag),
+	              :method => 'delete',
+	              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+	              :class => 'btn btn-danger' %>
+	</div>
+<% end %>
