@@ -18,4 +18,5 @@ class Hiking < ActiveRecord::Base
   default_scope :order => 'hikings.datetime DESC '
   
 
+  validates :name, :datetime, :limit, :province_id, :user_id, :presence, :location, :money , :presence => true
 end

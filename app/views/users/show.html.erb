@@ -15,7 +15,7 @@
 		<div class ="user_name"><i class="icon-flag"></i> 선봉장 < <%= firstplayers.length %> ></div>
 		<ul class = "display-inline-block">
 			<% firstplayers.each do |firstplayer| %>
-				<li class="flag-image">	<%= link_to flag_photo(firstplayer, :small), flag_path(firstplayer), :rel => "popover", :title => firstplayer.name, "data-content" => "#{firstplayer.date.strftime("%Y년 %m월 %d일")} "  %>
+				<li class="flag-image">	<%= link_to flag_photo(firstplayer, :small), flag_path(firstplayer), :rel => "popover", :title => "#{firstplayer.name} < #{firstplayer.participations.length}명 >", "data-content" => "#{firstplayer.date.strftime("%Y년 %m월 %d일")} "  %>
 				</li>
 			<% end %>
 		</ul>
@@ -27,10 +27,10 @@
 <div id ="flagplayer" class ="well">
 	<% players =  @user.participations.all %>
 	<% if players.length > 0 || @user != current_user%>
-		<div class ="user_name"><i class="icon-flag"></i> <<%= players.length %>> </div>
+		<div class ="user_name"><i class="icon-flag"></i> 정상을 정복 <<%= players.length %>> </div>
 		<ul class = "display-inline-block">
 			<% players.each do |player| %>
-				<li class="flag-image">	<%= link_to flag_image(player, :small), flag_path(player.flag), :rel => "popover", :title => player.flag.name, "data-content" => "#{player.flag.date.strftime("%Y년 %m월 %d일")} "  %>
+				<li class="flag-image">	<%= link_to flag_image(player, :small), flag_path(player.flag), :rel => "popover", :title => "#{player.flag.name} < #{player.flag.participations.length} 명 > ", "data-content" => "#{player.flag.date.strftime("%Y년 %m월 %d일")} "  %>
 				</li>
 			<% end %>
 		</ul>
@@ -45,7 +45,7 @@
 		<div class ="user_name">FlagHere에서 참여한 산행 <<%= hikingplayers.length %>> </div>
 		<ul class = "display-inline-block">
 			<% hikingplayers.each do |hikingplayer| %>
-				<li class="flag-image">	<%= link_to hiking_image(hikingplayer.hiking, :small), hiking_path(hikingplayer.hiking), :rel => "popover", :title => hikingplayer.hiking.name, "data-content" => "#{hikingplayer.hiking.datetime.strftime("%Y년 %m월 %d일")} "  %>
+				<li class="flag-image">	<%= link_to hiking_image(hikingplayer.hiking, :small), hiking_path(hikingplayer.hiking), :rel => "popover", :title => "#{hikingplayer.hiking.name} < #{hikingplayer.hiking.hikingparticipations.length}명 >   ", "data-content" => "#{hikingplayer.hiking.datetime.strftime("%Y년 %m월 %d일")} "  %>
 				</li>
 			<% end %>
 		</ul>

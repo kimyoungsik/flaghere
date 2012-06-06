@@ -7,6 +7,7 @@ en:
         remember_me: 로그인 상태 유지
         sign_in: 로그인
         password_confirmation: 패스워드 확인
+        current_password: 현재 비밀번호
     hints:
       user:
     placeholders:

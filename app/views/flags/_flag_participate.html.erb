@@ -4,7 +4,7 @@
 		<ul class = "display-inline-block">
 			<% players.each do |player| %>
 		
-				<li class="flag-image">	<%= link_to flag_image(player, :small), player.user, :rel => "popover", :title => player.user.email, "data-content" => "#{player.note} (#{player.date})"  %>
+				<li class="flag-image">	<%= link_to flag_image(player, :small), player.user, :rel => "popover", :title => "#{player.user.korean_full_name} _ Flag #{player.user.participations.length + player.user.flags.length} ", "data-content" => "#{player.note} (#{player.date})"  %>
 				</li>
 		
 			<% end %>
