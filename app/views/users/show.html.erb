@@ -48,7 +48,7 @@
 <div id ="flagplayer" class ="well">
 	<% hikingplayers =  @user.hikingparticipations.all %>
 	<% if hikingplayers.length > 0 || @user != current_user%>
-		<div class ="user_name">FlagHere에서 참여한 산행 <<%= hikingplayers.length %>> </div>
+		<div class ="user_name">망고마운틴에서 참여한 산행 <<%= hikingplayers.length %>> </div>
 		<ul class = "display-inline-block">
 			<% hikingplayers.each do |hikingplayer| %>
 				<li class="flag-image">	<%= link_to hiking_image(hikingplayer.hiking, :small), hiking_path(hikingplayer.hiking), :rel => "popover", :title => "#{hikingplayer.hiking.name} < #{hikingplayer.hiking.hikingparticipations.length}명 >   ", "data-content" => "#{hikingplayer.hiking.datetime.strftime("%Y년 %m월 %d일")} "  %>
