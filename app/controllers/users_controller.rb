@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @kits = @user.kits.page(params[:page]).per(20)
     @kit = @user.kits.build
+    @graph = Koala::Facebook::API.new(@user.facebook_token) # 1.2beta and beyond
   end
   
   private
