@@ -16,6 +16,24 @@
 </ul>
 
 <div id ="firstplayer" class ="well">
+	<div class ="user_name">뱃지</div>
+	<ul class = "display-inline-block">
+	<% if (@user.participations.length + @user.flags.length) > 2 %>
+		<li class="flag-image"><%= link_to badge_photo(Badge.find_by_id(1) ,:small), Badge.find_by_id(1) %></li>
+	<% end %>
+	
+	<% i = province_badge?(2,@user) %>
+	
+	<% if i > 3%>
+		<li class="flag-image"><%= link_to badge_photo(Badge.find_by_id(2) ,:small), Badge.find_by_id(2) %></li>
+	<% end %>
+	
+	
+	
+	</ul>
+</div>
+
+<div id ="firstplayer" class ="well">
 	<% firstplayers = @user.flags.all %>
 	<% if firstplayers.length > 0 || @user != current_user%>
 		<div class ="user_name"><i class="icon-flag"></i> 선봉장 < <%= firstplayers.length %> ></div>

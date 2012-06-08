@@ -1,6 +1,7 @@
 class ProvincesController < ApplicationController
   # GET /provinces
   # GET /provinces.json
+  before_filter :admin_user
   def index
     @provinces = Province.all
 
@@ -85,6 +86,12 @@ class ProvincesController < ApplicationController
   
   def store_location
     session[:return_to] = request.fullpath
+  end
+  
+  def admin_user
+    unless admin_signed_in?
+      redirect_to root_path
+    end
   end
   
 end

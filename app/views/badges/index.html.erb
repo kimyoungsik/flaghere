@@ -1,0 +1,38 @@
+
+
+<table class="table">
+  <thead>
+    <tr>
+      
+   		<th class = "name">뱃지</th>
+      <th>명칭</th>
+      <th>설명</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @badges.each do |badge| %>
+      <tr>
+				<td><%= link_to badge_photo(badge,:thumb), badge %></td>
+        <td><%= badge.name %></td>
+        <td><%= badge.description %></td>
+ 				<% if admin_signed_in? %>
+	        <td>
+	          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+	                      edit_badge_path(badge), :class => 'btn btn-mini' %>
+	          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+	                      badge_path(badge),
+	                      :method => :delete,
+	                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+	                      :class => 'btn btn-mini btn-danger' %>
+	        </td>
+				<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% if admin_signed_in? %>
+	<%= link_to t('.new', :default => t("helpers.links.new")),
+	            new_badge_path,
+	            :class => 'btn btn-primary' %>
+<% end %>

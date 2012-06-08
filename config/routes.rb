@@ -1,5 +1,7 @@
 Flaghere::Application.routes.draw do
 
+  resources :badges
+
   get "gettingstarted/step1"
   
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'

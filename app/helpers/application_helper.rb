@@ -28,13 +28,39 @@ module ApplicationHelper
     image_tag(image.photo.url(size))
   end
   
+  def badge_photo(image,size)
+    image_tag(image.badgephoto.url(size))
+  end
+  
   def full_title(page_title)
-     base_title = "FlagHere"
-     if page_title.empty?
-       base_title
-     else
-       "#{page_title}"
-     end
+   base_title = "FlagHere"
+   if page_title.empty?
+     base_title
+   else
+     "#{page_title}"
    end
+  end
+  
+  def province_badge?(province,user)
+    i = 0
+    firstplayers = user.flags.all
+    firstplayers.each do |firstplayer|
+  		if firstplayer.province_id == province
+  			i = i + 1
+  		end
+	  end
+	
+	  if i < 3
+		  players =  user.participations.all
+	    players.each do |player|
+  			if player.flag.province_id == province
+  			  i = i + 1
+  			end
+  		end
+		end
+	  
+	  return i
+  end
+  
   
 end
