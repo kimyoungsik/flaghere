@@ -11,7 +11,7 @@
 	</table>
 </div>
 
-<div class ="well" id ="flag_description"><%= @flag.description.gsub(/<\/?.*?>/, "").html_safe %></div>
+<div class ="well" id ="flag_description"><%= @flag.description.gsub(/\n/, "<br /><br />").html_safe %></div>
 <div class ="name"><i class="icon-flag"></i> 정상에 깃발을 꽂았습니다.</div>
 <div id="flag-participate"> 
 	<%= render 'flag_participate' %>

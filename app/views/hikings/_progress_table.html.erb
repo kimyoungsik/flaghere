@@ -7,7 +7,7 @@
 		<div>출발 장소 : <%= progress_table.location %></div>
 		<div>회비 : <%= number_with_delimiter(progress_table.money) %></div>
 		<div>최대 인원 : <%= progress_table.hikingparticipations.length %>/<%= hiking.limit %>
-		<div>준비물 &  비고 : <%= progress_table.description.gsub(/<\/?.*?>/, "").html_safe %></div></div>
+		<div>준비물 &  비고 : <%= progress_table.description.gsub(/<\/?.*?>/, "<br>").html_safe %></div></div>
 
 
     <div>

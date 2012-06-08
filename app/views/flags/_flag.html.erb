@@ -3,7 +3,7 @@
 	<div class = "main">
 		<div class ="info"> Mango #<%= flag.id %> <%= flag.date %> (<%= Province.find_by_id(flag.province_id).name %>)</div>
 		<div class ="name"> <%= link_to flag.name, flag_path(flag) %> </div> 
-		<div class ="description"><%= flag.description.gsub(/<\/?.*?>/, "").html_safe %></div>
+		<div class ="description"><%= flag.description.split(/\n/,2).gsub(/\n/, "<br />").html_safe %></div>
 		<% if admin_signed_in? or current_user == flag.user %>
  	   <div>
 	      <%= link_to '수정',
