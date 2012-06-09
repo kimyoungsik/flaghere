@@ -7,15 +7,19 @@
 					<td> <div class ="name"> <%= @hiking.name %> 	</div> </td>
 	        <td><%= link_to profile_photo(@hiking.user, :small, 80), @hiking.user %></td>
 					<td>
-						<div> 출발 일시 : <%= @hiking.datetime.strftime("%Y년 %m월 %d일 %H시 %M분") %> (<%= Province.find_by_id(@hiking.province_id).name %>)</div>
-						<div>출발 장소 : <%= @hiking.location %></div>
-						<div>회비 : <%= number_with_delimiter(@hiking.money) %></div>
-						<div>모집 최대 인원 : <%= @hiking.hikingparticipations.length %>/<%= @hiking.limit %>
-						<div>준비물 &  비고 : <%= @hiking.description.gsub(/<\/?.*?>/, "<br>").html_safe %></div></div>
+					
+						
 					</td>
 	      </tr>
 	  </tbody>
 	</table>
+</div>
+<div class ="well"  id ="hiking_description">
+	<div> 출발 일시 : <%= @hiking.datetime.strftime("%Y년 %m월 %d일 %H시 %M분") %> (<%= Province.find_by_id(@hiking.province_id).name %>)</div>
+	<div>출발 장소 : <%= @hiking.location %></div>
+	<div>회비 : <%= number_with_delimiter(@hiking.money) %></div>
+	<div>모집 최대 인원 : <%= @hiking.hikingparticipations.length %>/<%= @hiking.limit %></div>
+	준비물 &  비고 <br>	<div><%= @hiking.description.gsub(/\n/, "<br />").html_safe %></div>
 </div>
 
 <div class ="name"><i class="icon-user"></i> 참가합니다. (<%= @hiking.hikingparticipations.length %>/<%= @hiking.limit %>)</div>

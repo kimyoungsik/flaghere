@@ -16,7 +16,7 @@
 		<div>출발 장소 : <%= hiking.location %></div>
 		<div>회비 : <%= number_with_delimiter(hiking.money) %></div>
 		<div>최대 인원 : <%= hiking.hikingparticipations.length %>/<%= hiking.limit %></div>
-		<div>준비물 &  비고 : <%= hiking.description.gsub(/<\/?.*?>/, "<br>").html_safe %></div>
+		<div>준비물 &  비고 : <%= link_to "( 자세히 보기)" , hiking_path(hiking)%></div>
 
 		<% if admin_signed_in? or current_user == hiking.user %>
 	    <div>

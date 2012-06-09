@@ -124,9 +124,9 @@ ul.display-inline-block{
 }
 
 .displays .episode {
-	padding-bottom: 90px;
+	padding-bottom: 76px;
 	border-bottom: solid 1px #E5E5E5;
-	margin-bottom: 11px;
+	margin-bottom: 8px;
 
 }
 
@@ -157,7 +157,7 @@ ul.display-inline-block{
 	}
 	a:hover {
 		background :#FFFFFF; 
-		color: #c09853;
+		color: #d2b48c;
 	}
 }
 
@@ -166,6 +166,53 @@ ul.display-inline-block{
 	font-size: 16px;
 }
 
+/* hiking -index */
+.hiking_displays {
+	display: block;
+}
+
+.hiking_displays .episode {
+	padding-bottom: 39px;
+	border-bottom: solid 1px #E5E5E5;
+	margin-bottom: 8px;
+
+}
+
+.hiking_displays .shot {
+	float: left;
+	margin-right: 30px;
+	@include rounded-corners(6px);
+}
+
+.hiking_displays .main {
+	margin-left: 215px;
+}
+
+
+.hiking_displays .info {
+	color: #999;
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+
+.hiking_displays .name {
+  font-size: 28px;
+	font-weight: bold;
+	margin-bottom: 7px;
+
+	a:visited {
+		color: #c09853;
+	}
+	a:hover {
+		background :#FFFFFF; 
+		color: #c09853;
+	}
+}
+
+.hiking_displays .description {
+	margin-bottom: 17px;
+	font-size: 16px;
+}
 
 
 /* user -index */
