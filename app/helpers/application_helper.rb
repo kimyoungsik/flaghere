@@ -33,7 +33,7 @@ module ApplicationHelper
   end
   
   def full_title(page_title)
-   base_title = "FlagHere"
+   base_title = "망고마운틴"
    if page_title.empty?
      base_title
    else
