@@ -1,8 +1,8 @@
 Flaghere::Application.routes.draw do
 
-  resources :badges
+  
 
-  get "gettingstarted/step1"
+  
   
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :admins, :path_prefix => 'd'
@@ -10,7 +10,7 @@ Flaghere::Application.routes.draw do
   devise_scope :user do
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   end
-
+  get "gettingstarted/step1"
   resources :provinces
   resources :flags
   resources :users
@@ -20,7 +20,7 @@ Flaghere::Application.routes.draw do
   resources :hikings
   resources :comments
   resources :gettingstarted
-  
+  resources :badges
   match '/kits/:id/view_all_comments', :to => 'kits#view_all_comments'
   # The priority is based upon order of creation:
   # first created -> highest priority.
