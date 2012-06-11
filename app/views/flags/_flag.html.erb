@@ -1,5 +1,11 @@
 <div class = "episode">
-	<div class = "shot"><%= image_tag flag.photo.url(:small) %></div>
+	<div class = "shot">
+		<% if mobile_device? %>
+			<%= image_tag flag.photo.url(:thumb) %>
+		<% else %>
+			<%= image_tag flag.photo.url(:small) %>
+		<% end %>	
+	</div>
 	<div class = "main">
 		<div class ="info"> Mango #<%= flag.id %> <%= flag.date %> (<%= Province.find_by_id(flag.province_id).name %>)</div>
 		<div class ="name"> <%= link_to flag.name, flag_path(flag) %> </div> 
