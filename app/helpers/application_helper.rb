@@ -12,7 +12,7 @@ module ApplicationHelper
         image_tag(user.facebook_profile_photo)
       end
     else
-      image_tag('/assets/default_profile.png', :width => width)
+      image_tag('default_profile.png', :width => width)
     end
   end
   
