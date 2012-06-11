@@ -8,8 +8,8 @@ class Hiking < ActiveRecord::Base
   has_many :kits, :as => :kitable, :dependent => :destroy
   
   has_attached_file :hikingphoto, :styles => { :thumb =>  "50x50#", :small => "150x150#", :large => "640x640>" },
-    :url => "/assets/hikings/:id/:style/:basename.:extension",
-    :path => ":rails_root/public/assets/hikings/:id/:style/:basename.:extension"
+    :url => "/system/hikings/:id/:style/:basename.:extension",
+    :path => ":rails_root/public/system/hikings/:id/:style/:basename.:extension"
     
   validates_attachment_presence :hikingphoto
   validates_attachment_size :hikingphoto, :less_than => 5.megabytes
