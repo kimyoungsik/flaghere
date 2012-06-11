@@ -1,6 +1,8 @@
 @import "twitter/bootstrap/bootstrap";
-
-body { padding-top: 60px; }
+body { 
+	padding-top: 60px;
+	padding-left: 20px;
+}
 
 @import "twitter/bootstrap/responsive";
 
@@ -9,14 +11,15 @@ body { padding-top: 60px; }
 @iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
 
 // Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
-@fontAwesomeEotPath: asset-path('fontawesome-webfont.eot');
-@fontAwesomeWoffPath: asset-path('fontawesome-webfont.woff');
-@fontAwesomeTtfPath: asset-path('fontawesome-webfont.ttf');
-@fontAwesomeSvgzPath: asset-path('fontawesome-webfont.svgz');
-@fontAwesomeSvgPath: asset-path('fontawesome-webfont.svg');
+// Note: If you use asset_path() here, your compiled boostrap_and_overrides.css will not 
+//       have the proper paths. So for now we use the absolute path.
+@fontAwesomeEotPath: '/assets/fontawesome-webfont.eot';
+@fontAwesomeWoffPath: '/assets/fontawesome-webfont.woff';
+@fontAwesomeTtfPath: '/assets/fontawesome-webfont.ttf';
+@fontAwesomeSvgPath: '/assets/fontawesome-webfont.svg';
 
 // Font Awesome
- @import "fontawesome";
+@import "fontawesome";
 
 // Your custom LESS stylesheets goes here
 //
@@ -27,7 +30,7 @@ body { padding-top: 60px; }
 // See http://twitter.github.com/bootstrap/less.html for their names and documentation
 //
 // Example:
-//@linkColor: #ff0000;
+// @linkColor: #ff0000;
 
 .navbar .brand:hover {
   color: #FFFFFF;
@@ -43,5 +46,3 @@ body { padding-top: 60px; }
 @navbarBrandColor: #FAFFB8;
 
 @tableBackgroundHover: transparent;
-
-
