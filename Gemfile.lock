@@ -9,6 +9,24 @@ GIT
       therubyracer (~> 0.10.1)
 
 GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: 4e08fe4f18321e0971ef62cd7b59e86437b49aa7
+  specs:
+    rails_admin (0.0.4)
+      bbenezech-nested_form (~> 0.0.6)
+      bootstrap-sass (~> 2.0, >= 2.0.3)
+      builder (~> 3.0)
+      coffee-rails (~> 3.1)
+      haml (~> 3.1)
+      jquery-rails (>= 1.0.17)
+      jquery-ui-rails (~> 0.2.2)
+      kaminari (~> 0.12)
+      rack-pjax (~> 0.5)
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+      sass-rails (~> 3.1)
+
+GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: 6728166896d58412e4d10276f010eca8c299890f
   specs:
@@ -163,19 +181,6 @@ GEM
       activesupport (= 3.2.3)
       bundler (~> 1.0)
       railties (= 3.2.3)
-    rails_admin (0.0.4)
-      bbenezech-nested_form (~> 0.0.6)
-      bootstrap-sass (~> 2.0, >= 2.0.3)
-      builder (~> 3.0)
-      coffee-rails (~> 3.1)
-      haml (~> 3.1)
-      jquery-rails (>= 1.0.17)
-      jquery-ui-rails (~> 0.2.2)
-      kaminari (~> 0.12)
-      rack-pjax (~> 0.5)
-      rails (~> 3.1)
-      remotipart (~> 1.0)
-      sass-rails (~> 3.1)
     rails_autolink (1.0.9)
       rails (~> 3.1)
     railties (3.2.3)
@@ -235,7 +240,7 @@ DEPENDENCIES
   omniauth-facebook
   paperclip!
   rails (= 3.2.3)
-  rails_admin
+  rails_admin!
   rails_autolink
   sass-rails (~> 3.2.3)
   simple_form

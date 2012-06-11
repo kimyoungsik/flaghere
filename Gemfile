@@ -25,7 +25,7 @@ gem 'jquery-rails'
 
 
 gem 'devise'
-gem 'rails_admin'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem "omniauth-facebook"
 gem 'simple_form'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
