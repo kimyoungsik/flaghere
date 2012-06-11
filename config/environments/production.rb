@@ -67,5 +67,5 @@ Flaghere::Application.configure do
   # i18n
   config.i18n.locale = :ko
   
-  config.action_mailer.default_url_options = { :host => 'mangomountain.kr' }
+  
 end
