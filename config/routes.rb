@@ -10,6 +10,7 @@ Flaghere::Application.routes.draw do
   devise_scope :user do
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   end
+  
   get "gettingstarted/step1"
   resources :provinces
   resources :flags
@@ -26,7 +27,7 @@ Flaghere::Application.routes.draw do
   # first created -> highest priority.
 
   # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
+  # match 'google951c323288c1d1a9.html'  => 'gettingstarted#google951c323288c1d1a9'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
