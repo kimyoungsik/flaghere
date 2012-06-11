@@ -19,6 +19,25 @@ Flaghere::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+  
+  # Don't care if the mailer can't send
+  config.action_mailer.raise_delivery_errors = true
+  
+  # Change mail delvery to either :smtp, :sendmail, :file, :test
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.smtp_settings = {
+    address: "mail.google.com/a/mangomountain.kr",
+    port: 587,
+    domain: "mangomountain.kr",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["info@mangomountain.kr"],
+    password: ENV["gpem4162"]
+  }
+
+  # Specify what domain to use for mailer URLs
+  config.action_mailer.default_url_options = {host: "intra.socialcube.kr" }
+
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
