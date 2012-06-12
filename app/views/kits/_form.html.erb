@@ -1,6 +1,9 @@
 <%= form_for @kit , :html => { :class => 'form-horizontal', :multipart => true  } do |f| %>
-    <td><%= f.text_area :content, :label => "" %>
+	
+    <td class "kit_flag_kit_form"> <%= f.text_area :content, :label => "", :size => "100x3" %>
 		<%= f.hidden_field :kitable_id %>
 		<%= f.hidden_field :kitable_type %></td>
-    <td><%= f.submit "댓글", :class => "btn btn-info" %></td>
+
+   	<td><%= f.submit "댓글", :class => "btn btn-info" %></td>
+
 <% end %>

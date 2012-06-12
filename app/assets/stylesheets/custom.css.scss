@@ -58,20 +58,13 @@
 	line-height: 23px;
 }
 
-#kit_content {
-	width: 800px;
-	height: 50px;
-}
+
 
 #commentform {
 	background: #dff0d8;
-	width: 700px;
+	width: 338px;
 	height: 60px;
-	padding :  0px 0px 22px 3px
-}
-
-.comment-textarea {
-	width: 500px;
+	padding :  0px 0px 16px 0px
 }
 
 
@@ -142,7 +135,7 @@ ul.display-inline-block{
 }
 
 .displays .mobile_main {
-
+	margin-left: 30px;
 }
 
 .displays .info {
@@ -184,14 +177,16 @@ ul.display-inline-block{
 
 .hiking_displays .shot {
 	float: left;
-	margin-right: 30px;
+
 	@include rounded-corners(6px);
 }
 
 .hiking_displays .main {
-	margin-left: 215px;
+	margin-left: 167px;
 }
-
+.hiking_displays .mobile_main {
+	margin-left: 20px;
+}
 
 .hiking_displays .info {
 	color: #999;
