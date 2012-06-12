@@ -22,7 +22,7 @@
 		<% else %>
 			<div id= "flagsuccessform" class = "well">				
 				<%= simple_form_for current_user.participations.build(:flag_id => @flag.id), :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
-					<div class ="name"><i class="icon-flag"></i> 꽂기</div>
+					<div class ="name">깃발 꽂기</div>
 					<%= f.hidden_field :flag_id %>
 					<%= f.input :date, :label => "날짜",:use_month_numbers => true %>
 					<%= f.input :note, :label => "한줄 소감" %>
