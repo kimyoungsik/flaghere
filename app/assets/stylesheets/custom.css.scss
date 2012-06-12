@@ -26,6 +26,7 @@
 }
 
 #participation_note {
+
 	height: 100px;
 }
 
@@ -58,14 +59,11 @@
 }
 
 
-
 #commentform {
 	background: #dff0d8;
 	height: 60px;
-	padding :  0px 0px 16px 0px
+	padding-top : 0px;
 }
-
-
 
 
 .timestamp {
@@ -116,7 +114,7 @@ ul.display-inline-block{
 }
 
 .displays .episode {
-	padding-bottom: 76px;
+	padding-bottom: 9px;
 	border-bottom: solid 1px #E5E5E5;
 	margin-bottom: 8px;
 
@@ -130,6 +128,7 @@ ul.display-inline-block{
 
 .displays .main {
 	margin-left: 167px;
+	height: 150px;
 }
 
 .displays .mobile_main {
@@ -143,7 +142,7 @@ ul.display-inline-block{
 }
 
 .displays .name {
-  font-size: 28px;
+  font-size: 22px;
 	font-weight: bold;
 	margin-bottom: 7px;
 
@@ -157,7 +156,7 @@ ul.display-inline-block{
 }
 
 .displays .description {
-	margin-bottom: 17px;
+	margin-bottom: 13px;
 	font-size: 16px;
 }
 
@@ -167,7 +166,7 @@ ul.display-inline-block{
 }
 
 .hiking_displays .episode {
-	padding-bottom: 39px;
+	padding-bottom: 9px;
 	border-bottom: solid 1px #E5E5E5;
 	margin-bottom: 8px;
 
@@ -181,6 +180,7 @@ ul.display-inline-block{
 
 .hiking_displays .main {
 	margin-left: 167px;
+		height: 150px;
 }
 .hiking_displays .mobile_main {
 	margin-left: 100px;
@@ -192,19 +192,6 @@ ul.display-inline-block{
 	margin-bottom: 5px;
 }
 
-.hiking_displays .name {
-  font-size: 28px;
-	font-weight: bold;
-	margin-bottom: 7px;
-
-	a:visited {
-		color: #c09853;
-	}
-	a:hover {
-		background :#FFFFFF; 
-		color: #c09853;
-	}
-}
 
 .hiking_displays .description {
 	margin-bottom: 17px;
@@ -278,10 +265,6 @@ margin-bottom: 20px;
 
 #kit-item {
 	padding : 11px 0px 0px 10px;
-}
-
-#kit-delete {
-
 }
 
 
