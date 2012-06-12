@@ -62,7 +62,6 @@
 #commentform {
 	background: #dff0d8;
 	height: 60px;
-	padding-top : 0px;
 }
 
 
@@ -133,6 +132,7 @@ ul.display-inline-block{
 
 .displays .mobile_main {
 	margin-left: 40px;
+	height: 150px;
 }
 
 .displays .info {
@@ -180,10 +180,11 @@ ul.display-inline-block{
 
 .hiking_displays .main {
 	margin-left: 167px;
-		height: 150px;
+	height: 150px;
 }
 .hiking_displays .mobile_main {
 	margin-left: 100px;
+	height: 150px;
 }
 
 .hiking_displays .info {
