@@ -1,11 +1,7 @@
 
 <div class = "episode">
 	<div class = "shot">
-		<% unless mobile_device? %>
-			<%= image_tag hiking.hikingphoto.url(:thumb) %>
-		<% else %>
-			<%= image_tag hiking.hikingphoto.url(:small) %>
-		<% end %>
+		<%= image_tag hiking.hikingphoto.url(:small) %>
 	</div>
 	<% if mobile_device? %>
 		<div class = "mobile_main">
