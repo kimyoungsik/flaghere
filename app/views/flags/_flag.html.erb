@@ -1,12 +1,10 @@
 <div class = "episode">
 	<div class = "shot">
-
 		<%= image_tag flag.photo.url(:small) %>
-
 	</div>
 	<% if mobile_device? %>
 		<div class = "mobile_main">
-			<div class ="info"> Mango #<%= flag.id %> <%= flag.date %> (<%= Province.find_by_id(flag.province_id).name %>)</div>
+			<div class ="info"> <%= flag.date %> <%= Province.find_by_id(flag.province_id).name %> <i class="icon-flag"></i>(<%= flag.participations.length %>)</div>
 			<div class ="name"> <%= link_to flag.name, flag_path(flag) %> </div> 
 			<% if admin_signed_in? or current_user == flag.user %>
 	 	   <div>
@@ -23,9 +21,8 @@
 	
 	<% else %>
 		<div class = "main">
-			<div class ="info"> Mango #<%= flag.id %> <%= flag.date %> (<%= Province.find_by_id(flag.province_id).name %>)</div>
-			<div class ="name"> <%= link_to flag.name, flag_path(flag) %> </div> 
-				<% if flag.description.split(/\n/)[2].nil? %>
+			<div class ="info"> <%= flag.date %> <%= Province.find_by_id(flag.province_id).name %> <i class="icon-flag"></i>(<%= flag.participations.length %>)</div>
+			<div class ="name"> <%= link_to flag.name, flag_path(flag) %> </div> 				<% if flag.description.split(/\n/)[2].nil? %>
 					<div class ="description"><%= flag.description %></div>
 				<% else %>
 					<div class ="description"><%= flag.description.split(/\n/)[0, 2].push("...").join.gsub(/\r/, "<br />").html_safe %></div>
