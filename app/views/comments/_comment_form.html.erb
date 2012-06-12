@@ -3,7 +3,9 @@
 		<table class="table">
 			<tbody>			
 				<tr>
-					<td> <%= profile_photo(current_user, :thumb, 60) %> </td>
+					<% unless mobile_device? %>	
+						<td> <%= profile_photo(current_user, :thumb, 60) %> </td>
+					<% end%>
 					<%= form_for current_user.comments.build(:kit_id => kit.id), :validate => true, :remote => true do |f| %>
 						<td><%= f.text_area :content, :rows => 3, :class => "comment-textarea", :id => "comment-content-textarea-#{kit.id}" %>
 						<%= f.hidden_field :kit_id %></td>

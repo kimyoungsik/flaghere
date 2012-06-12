@@ -3,10 +3,13 @@
 		<% players =  @flag.participations.all %>
 		<ul class = "display-inline-block">
 			<% players.each do |player| %>
-		
-				<li class="flag-image">	<%= link_to flag_image(player, :small), player.user, :rel => "popover", :title => "#{player.user.korean_full_name} _ Flag #{player.user.participations.length + player.user.flags.length} ", "data-content" => "#{player.note} (#{player.date})"  %>
-				</li>
-		
+		 		<% if mobile_device? %>
+					<li class="flag-image">	<%= link_to flag_image(player, :thumb), player.user, :rel => "popover", :title => "#{player.user.korean_full_name} _ Flag #{player.user.participations.length + player.user.flags.length} ", "data-content" => "#{player.note} (#{player.date})"  %>
+					</li>
+				<% else %>
+					<li class="flag-image">	<%= link_to flag_image(player, :small), player.user, :rel => "popover", :title => "#{player.user.korean_full_name} _ Flag #{player.user.participations.length + player.user.flags.length} ", "data-content" => "#{player.note} (#{player.date})"  %>
+					</li>
+				<% end %>
 			<% end %>
 		</ul>
 	</div>
