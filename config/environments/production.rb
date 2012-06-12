@@ -36,7 +36,7 @@ Flaghere::Application.configure do
   }
 
   # Specify what domain to use for mailer URLs
-  config.action_mailer.default_url_options = {host: "intra.socialcube.kr" }
+  config.action_mailer.default_url_options = {host: "mangomountain.kr" }
 
 
   # Defaults to Rails.root.join("public/assets")
