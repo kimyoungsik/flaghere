@@ -133,14 +133,17 @@ ul.display-inline-block{
 
 .displays .shot {
 	float: left;
-	margin-right: 30px;
 	@include rounded-corners(6px);
 }
 
+
 .displays .main {
-	margin-left: 215px;
+	margin-left: 167px;
 }
 
+.displays .mobile_main {
+
+}
 
 .displays .info {
 	color: #999;
