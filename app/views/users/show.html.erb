@@ -20,12 +20,16 @@
 	<ul class = "display-inline-block">
 		<% if (@user.participations.length + @user.flags.length) > 2 %>
 			<% if mobile_device? %>
-				<li class="flag-image"><%= link_to badge_photo(Badge.find_by_id(1) ,:thumb), Badge.find_by_id(1) %></li>
+				<li class="flag-image"><%= link_to badge_photo(Badge.find_by_id(2) ,:thumb), Badge.find_by_id(2) %></li>
 			<% else %>
-				<li class="flag-image"><%= link_to badge_photo(Badge.find_by_id(1) ,:small), Badge.find_by_id(1) %></li>
+				<li class="flag-image"><%= link_to badge_photo(Badge.find_by_id(2) ,:small), Badge.find_by_id(2) %></li>
 			<% end %>
 		<% end %>
-	
+		<% provinces = province_badge?(@user) %>
+		<% provinces.each do |province| %>
+			<li class="flag-image"><%= link_to badge_photo(Badge.find_by_id(province) ,:small), Badge.find_by_id(province) %></li>
+		<% end %>
+		
 	</ul>
 </div>
 
