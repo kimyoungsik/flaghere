@@ -1,17 +1,17 @@
 <% if user_signed_in? || admin_signed_in? %>
 	<div id ="hikingparticipants" class="well">
 		<% players =  @hiking.hikingparticipations.all %>
-		<ul class = "display-inline-block">
-			<% players.each do |player| %>
+			<ul class = "display-inline-block">
+				<% players.each do |player| %>
 		
-			<li class="flag-image">	<%= link_to profile_photo(player.user, :thumb, 50), player.user, :rel => "popover", :title => player.user.korean_full_name, "data-content" => "Flag #{player.user.participations.length + player.user.flags.length} "  %>
-			</li>
+				<li class="flag-image">	<%= link_to profile_photo(player.user, :thumb, 50), player.user, :rel => "popover", :title => player.user.korean_full_name, "data-content" => "Flag #{player.user.participations.length + player.user.flags.length} "  %>
+				</li>
 		
-			<% end %>
-		</ul>
+				<% end %>
+			</ul>
 		</div>
 		
-  <% if !admin_signed_in?%>
+  <% if !admin_signed_in? and !(current_user.id == @hiking.user_id) %>
     <% if  current_user.hikingparticipates_in?(@hiking) %>
 		  <div class="alert alert-success"%>
          <a class="close" data-dismiss="alert">x</a>

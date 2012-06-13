@@ -20,14 +20,19 @@
 	<ul class = "display-inline-block">
 		<% if (@user.participations.length + @user.flags.length) > 2 %>
 			<% if mobile_device? %>
-				<li class="flag-image"><%= link_to badge_photo(Badge.find_by_id(2) ,:thumb), Badge.find_by_id(2) %></li>
+				<li class="flag-image"><%= link_to badge_photo(Badge.find_by_id(1) ,:thumb), Badge.find_by_id(1) %></li>
 			<% else %>
-				<li class="flag-image"><%= link_to badge_photo(Badge.find_by_id(2) ,:small), Badge.find_by_id(2) %></li>
+				<li class="flag-image"><%= link_to badge_photo(Badge.find_by_id(1) ,:small), Badge.find_by_id(1) %></li>
 			<% end %>
 		<% end %>
 		<% provinces = province_badge?(@user) %>
 		<% provinces.each do |province| %>
-			<li class="flag-image"><%= link_to badge_photo(Badge.find_by_id(province) ,:small), Badge.find_by_id(province) %></li>
+			<% province = Integer(province) + 1 %>
+			<% if mobile_device? %>
+				<li class="flag-image"><%= link_to badge_photo(Badge.find_by_id(province) ,:thumb), Badge.find_by_id(province) %></li>
+			<% else %>
+				<li class="flag-image"><%= link_to badge_photo(Badge.find_by_id(province) ,:small), Badge.find_by_id(province) %></li>
+			<% end %>
 		<% end %>
 		
 	</ul>
@@ -55,6 +60,7 @@
 
 <div id ="flagplayer" class ="well">
 	<% players =  @user.participations.all %>
+	
 	<% if players.length > 0 || @user != current_user%>
 		<div class ="user_name"><i class="icon-flag"></i> 정상을 정복 <<%= players.length %>> </div>
 			<ul class = "display-inline-block">
@@ -74,7 +80,8 @@
 
 <div id ="flagplayer" class ="well">
 	<% hikingplayers =  @user.hikingparticipations.all %>
-	<% if hikingplayers.length > 0 || @user != current_user%>
+	<% makers = @user.hikings.all %>
+	<% if hikingplayers.length > 0 || @user != current_user || makers.length > 0 %>
 		<div class ="user_name">망고마운틴에서 참여한 산행 <<%= hikingplayers.length %>> </div>
 			<ul class = "display-inline-block">
 				<% hikingplayers.each do |hikingplayer| %>
@@ -83,6 +90,15 @@
 						</li>
 					<% else %>
 						<li class="flag-image">	<%= link_to hiking_image(hikingplayer.hiking, :small), hiking_path(hikingplayer.hiking), :rel => "popover", :title => "#{hikingplayer.hiking.name} < #{hikingplayer.hiking.hikingparticipations.length}명 >   ", "data-content" => "#{hikingplayer.hiking.datetime.strftime("%Y년 %m월 %d일")} "  %>
+						</li>
+					<% end %>
+				<% end %>
+				<% makers.each do |maker| %>
+					<% if mobile_device? %>
+						<li class="flag-image">	<%= link_to hiking_image(maker, :thumb), hiking_path(maker), :rel => "popover", :title => "#{maker.name} < #{maker.hikingparticipations.length}명 >   ", "data-content" => "#{maker.datetime.strftime("%Y년 %m월 %d일")} "  %>
+						</li>
+					<% else %>
+						<li class="flag-image">	<%= link_to hiking_image(maker, :small), hiking_path(maker), :rel => "popover", :title => "#{maker.name} < #{maker.hikingparticipations.length}명 >   ", "data-content" => "#{maker.datetime.strftime("%Y년 %m월 %d일")} "  %>
 						</li>
 					<% end %>
 				<% end %>
