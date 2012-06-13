@@ -1,16 +1,14 @@
 <% provide(:title, @user.korean_full_name) %>
 <ul class = "display-inline-block">
 	<li class = "img-round"><%= profile_photo(@user, :large, 500) %></li>
-	<li>
-		<div class ="user_name"> <%= @user.korean_full_name %> < Flag <%= @user.participations.length + @user.flags.length %>></div>
-			<% if @user.facebook_uid %>
-				<%= link_to "#{@user.korean_full_name} 님의 페이스북", "http://www.facebook.com/profile.php?id=#{@user.facebook_uid}", 
-				:target => '_blank', :class => "item-link" %>
-			<% end %>
-			
-			
+	<li class = "well" id="user_show_profile">
+		<div class ="user_name"> <%= @user.korean_full_name %> < Flag <%= @user.participations.length + @user.flags.length %>> <% if @user.facebook_uid %>
+			<%= link_to image_tag('Facebook_icon.png'), "http://www.facebook.com/profile.php?id=#{@user.facebook_uid}", 
+			:target => '_blank', :class => "item-link" %>
+		<% end %></div>
+
 		<% if admin_signed_in? or current_user == @user %>
-			<div><%= link_to "사진 및 개인정보 수정", edit_user_path(@user)%></div>
+			<div ><%= link_to "사진 및 개인정보 수정", edit_user_path(@user), :class => 'btn btn-success'%></div>
 		<% end %>
 	</li>
 </ul>
