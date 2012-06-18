@@ -168,6 +168,13 @@ ActiveRecord::Schema.define(:version => 20120618041423) do
     t.boolean  "facebook_connect",                    :default => false
     t.boolean  "consent1",                            :default => false
     t.boolean  "consent2",                            :default => false
+    t.boolean  "name_consent",                        :default => false
+    t.boolean  "email_consent",                       :default => false
+    t.boolean  "info_consent",                        :default => false
+    t.string   "nickname"
+    t.string   "favorite_mountain"
+    t.string   "introduce"
+    t.string   "experience"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

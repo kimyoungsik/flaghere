@@ -68,7 +68,7 @@ class HikingsController < ApplicationController
             :name => @hiking.name, 
             :picture => request.protocol + request.host + @hiking.hikingphoto.url,
             :link => request.protocol + request.host + hiking_path(@hiking),
-            :caption => @hiking.user.korean_full_name,
+            :caption => @hiking.user.nickname,
             :description => "#{@hiking.datetime.strftime("%Y년 %m월 %d일 %H시 %M분 출발")}-#{@hiking.location}" })
         end
         format.html { redirect_to @hiking, notice: 'Hiking was successfully created.' }

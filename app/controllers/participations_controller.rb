@@ -9,7 +9,7 @@ class ParticipationsController < ApplicationController
           :name => @flag.name, 
           :picture => request.protocol + request.host + @participation.picture.url,
           :link => request.protocol + request.host + flag_path(@flag),
-          :caption => @participation.user.korean_full_name,
+          :caption => @participation.user.nickname,
           :description => "#{@participation.date.strftime("%Y년 %m월 %d일")}-#{@participation.note}" })
       end
       respond_to do |format|

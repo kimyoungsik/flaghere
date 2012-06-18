@@ -53,7 +53,7 @@ class FlagsController < ApplicationController
              :name => @flag.name, 
              :picture => request.protocol + request.host + @flag.photo.url,
              :link => request.protocol + request.host + flag_path(@flag),
-             :caption => @flag.user.korean_full_name,
+             :caption => @flag.user.nickname,
              :description => "#{@flag.date.strftime("%Y년 %m월 %d일")}-#{@flag.description}" })
          end
          

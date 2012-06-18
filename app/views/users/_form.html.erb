@@ -1,10 +1,23 @@
 <div class = "well">
 <%= simple_form_for @user, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
+	<%= f.input :nickname,:label => '별명' %>
+	<%= f.input :favorite_mountain,:label => '가장 좋아하는 산' %>
+	<%= f.input :introduce,:label => '한마디(소개/목표)' %>
+
+	<%= f.input :avatar,:label => '본인사진' %>
+
 	<%= f.input :last_name,:label => '성' %>
 	<%= f.input :first_name,:label => '이름' %>
+	
 	<% if current_user.facebook_uid %>
-		<div><%= f.check_box :facebook_connect%> facebook 연동 여부 (체크할 시에는 '참가 및 선봉장'이 되었을 때 facebook에 자동으로 포스팅 됩니다.)</div><br>
+		<div></div>
+		<div>2.</div>
+		<div><%= f.input :facebook_connect ,:as => :radio_buttons, :label => "facebook 연동 여부", :hint => "페이스북 연동시: 1. 내 페이지에서 다른회원이 나의 페이스북페이지로 바로 이동할 수 있는 링크 생성 선봉장,깃발 꽂기,모임생성,모임참여 했을 시 페이스북 자신의 페이지에 자동으로 포스팅"%> </div><br>	
 	<% end %>
+	<div><%= f.input :name_consent,   :as => :radio_buttons, :label => "실명 공개", :hint => "실명을 자신의 페이지에 공개"%> </div><br>	
+	<div><%= f.input :email_consent,   :as => :radio_buttons, :label => "이메일 공개", :hint => "이메일을 자신의 페이지에 공개(비공개권장) "%></div><br>	
+	<div><%= f.input :info_consent,  :as => :radio_buttons, :label => "기타 정보  공개", :hint => "좋아하는산,한마디를 자신의 페이지에 공개 (공개권장) "%></div><br>	
+	
 
 	<%= f.input :avatar,:label => '본인사진' %>
   <div class="form-actions">

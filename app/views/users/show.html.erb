@@ -1,12 +1,25 @@
-<% provide(:title, @user.korean_full_name) %>
+<% provide(:title, @user.nickname) %>
 <ul class = "display-inline-block">
 	<li class = "img-round"><%= profile_photo(@user, :large, 500) %></li>
 	<li class = "well" id="user_show_profile">
-		<div class ="user_name"> <%= @user.korean_full_name %> < Flag <%= @user.participations.length + @user.flags.length %>> <% if @user.facebook_uid %>
+		<div class ="user_name"> <%= @user.nickname %> < Flag <%= @user.participations.length + @user.flags.length %>> <% if @user.facebook_uid and current_user.facebook_connect %>
 			<%= link_to image_tag('Facebook_icon.png'), "http://www.facebook.com/profile.php?id=#{@user.facebook_uid}", 
 			:target => '_blank', :class => "item-link" %>
 		<% end %></div>
-
+		
+		<% if @user.name_consent and !@user.korean_full_name.blank? %>
+		
+		성명 <div class ="name"><%= @user.korean_full_name %></div>
+		<% end %>
+		<% if @user.email_consent %>
+		 이메일 <div class ="name" ><%= @user.email %></div>	
+		<% end %>
+		<% if @user.info_consent and !@user.favorite_mountain.blank? and !@user.introduce.blank?%>
+			좋아하는 산 <div class ="name"><%= @user.favorite_mountain %></div>
+			한마디 <div class ="name"><%= @user.introduce %></div>
+		<% end %>
+		
+		
 		<% if admin_signed_in? or current_user == @user %>
 			<div ><%= link_to "사진 및 개인정보 수정", edit_user_path(@user), :class => 'btn btn-success'%></div>
 		<% end %>
