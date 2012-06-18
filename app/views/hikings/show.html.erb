@@ -15,8 +15,14 @@
 	</table>
 </div>
 <div class ="well"  id ="hiking_description">
+	<div>분류 : <%= Hikingtype.find(@hiking.hikingtype_id).name %></div>
 	<div> 출발 일시 : <%= @hiking.datetime.strftime("%Y년 %m월 %d일 %H시 %M분") %> (<%= Province.find_by_id(@hiking.province_id).name %>)</div>
-	<div>출발 장소 : <%= @hiking.location %></div>
+	<div>모임 장소 : <%= @hiking.location %></div>
+	<div>산행 코스 : <%= @hiking.course %></div>
+	<div>산행 등급 : <%= @hiking.level %>(1(쉬움)~10(어려움))</div>
+	<div>예상 시간 : <%= @hiking.hour %> </div>
+	<div>산행 일수 : <%= @hiking.day %> </div>
+	<div>주최자 연락처 : <%= @hiking.call %> </div>
 	<div>회비 : <%= number_with_delimiter(@hiking.money) %></div>
 	<div>모집 최대 인원 : <%= @hiking.hikingparticipations.length %>/<%= @hiking.limit %></div>
 	준비물 &  비고 <br>	<div><%= @hiking.description.gsub(/\n/, "<br />").html_safe %></div>

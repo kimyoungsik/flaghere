@@ -1,6 +1,6 @@
 #encoding:utf-8
 class Hiking < ActiveRecord::Base
-  attr_accessible :datetime, :description, :limit, :location, :name, :province_id, :user_id, :hikingphoto, :money
+  attr_accessible :name, :datetime, :limit, :province_id, :user_id, :presence, :location, :money ,:course ,:level, :day, :hour, :call, :hikingphoto, :hikingtype_id, :description
   
   belongs_to :user
   has_many :hikingparticipations, :dependent => :destroy
@@ -19,7 +19,7 @@ class Hiking < ActiveRecord::Base
   default_scope :order => 'hikings.datetime DESC '
   
 
-  validates :name, :datetime, :limit, :province_id, :user_id, :presence, :location, :money , :presence => true
+  validates :name, :datetime, :limit, :province_id, :user_id, :presence, :location, :money ,:course ,:level, :day, :hour, :call, :hikingtype_id, :presence => true
   validates :limit, numericality: {greater_than_or_equal_to: 0}
   validates :money, numericality: {greater_than_or_equal_to: 0}
   

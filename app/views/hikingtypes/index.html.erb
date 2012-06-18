@@ -1,0 +1,23 @@
+<h1>Listing hikingtypes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @hikingtypes.each do |hikingtype| %>
+  <tr>
+    <td><%= hikingtype.name %></td>
+    <td><%= link_to 'Show', hikingtype %></td>
+    <td><%= link_to 'Edit', edit_hikingtype_path(hikingtype) %></td>
+    <td><%= link_to 'Destroy', hikingtype, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Hikingtype', new_hikingtype_path %>

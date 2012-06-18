@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :facebook_auth, :except => [:destroy]
   before_filter :prepare_for_mobile
   def noname_user
-    if user_signed_in? and (current_user.first_name.blank? or current_user.last_name.blank?)
+    if user_signed_in? and (current_user.first_name.blank? or current_user.last_name.blank? or current_user.consent1 == false or current_user.consent2 == false)
       redirect_to gettingstarted_step1_path
     end
   end

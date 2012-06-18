@@ -1,9 +1,9 @@
 <% provide(:title, "등산모임") %>
-<div class = "name"> 평일(1일) </div>
+<div class = "name"> 주말(1일) </div>
 <div class="hiking_displays">
-	<%= render @hikings %>
+	<%= render @weekend %>
 </div>
-<%= paginate @hikings %>
+<%= paginate @weekend %>
 
 
 <%= link_to '새로만들기',

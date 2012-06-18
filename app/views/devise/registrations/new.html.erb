@@ -1,22 +1,31 @@
-<div class ="name"> 회원가입 </div><br>
+<div class = "well">
+망고마운틴 회원가입에는 2가지 방법이 있습니다. 기존의 페이스북 아이디로 간편하게 회원가입,	이메일 비밀번호로만 회원가입<br>
+회원가입후에는 이용 약관 및 개인정보 취급방침에 동의하셔야지만 정상적으로 이용하실 수 있습니다.
+</div>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+<div class = "well">
+	<div class ="name"> 페이스북으로 회원가입 </div><br>
 
-  <div class="inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
-  </div>
+	<%= link_to image_tag('login-facebook.png'), user_omniauth_authorize_path(:facebook) %>
+</div>
 
-  <div class="actions">
-    <%= f.button :submit, "회원가입" %>
-  </div>
-<% end %>
+<div class = "well">
+	<div class ="name"> 회원가입 </div><br>
 
-<%= render :partial => "devise/shared/links" %><br>
+	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+	  <%= f.error_notification %>
 
+	  <div class="inputs">
+	    <%= f.input :email, :required => true, :autofocus => true %>
+	    <%= f.input :password, :required => true %>
+	    <%= f.input :password_confirmation, :required => true %>
+	  </div>
 
-<div class ="name"> 페이스북으로 회원가입 </div><br>
-<%= link_to image_tag('login-facebook.png'), user_omniauth_authorize_path(:facebook) %>
+	  <div class="actions">
+	    <%= f.button :submit, "회원가입" %>
+	  </div>
+	<% end %>
 
+	<%= render :partial => "devise/shared/links" %><br>
+
+</div>

@@ -4,12 +4,29 @@ class HikingsController < ApplicationController
   # GET /hikings
   # GET /hikings.json
   def index
-    @hikings = Hiking.page(params[:page]).per(10)
+    @hikings = Hiking.where(hikingtype_id: 1).page(params[:page]).per(10)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @hikings }
     end
   end
+  
+  def weekend
+    @weekend = Hiking.where(hikingtype_id: 2).page(params[:page]).per(10)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @hikings }
+    end
+  end
+  
+  def expedition
+    @expedition = Hiking.where(hikingtype_id: 3).page(params[:page]).per(10)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @hikings }
+    end
+  end
+  
 
   # GET /hikings/1
   # GET /hikings/1.json

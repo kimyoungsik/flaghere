@@ -14,4 +14,11 @@ class GettingstartedController < ApplicationController
 
   def step1
   end
+  
+  
+  def consent1
+  end
+  
+  def consent2
+  end
 end

@@ -1,13 +1,19 @@
 <%= simple_form_for @hiking, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
   <%= f.hidden_field :user_id %>
+	<%= f.input :hikingtype_id, :collection => Hikingtype.all ,:label => '분류' %>
   <%= f.input :province_id, :collection => Province.all ,:label => '도/특별시' %>
   <%= f.input :name, :label => '산 명칭' %>
   <%= f.input :datetime, :label => '출발 일시',:use_month_numbers => true %>
   <%= f.input :location, :label => '모임 장소' %>
-	<%= f.input :money, :label => '회비' %>
+	<%= f.input :course, :label => '산행 코스', :hint => '예) 과천향교-연주대-팔봉능선-서울대입구' %>
+	<%= f.input :level, :label => '산행 등급', :hint => '예) 1(쉬움)~10(어려움)' %>
+	<%= f.input :hour, :label => '예상시간',:hint => '장기일경우 하루당 평균 시간'%>
+	<%= f.input :day, :label => '산행 일수', :hint => '예) 1일, 무박2일, ...' %>
+	<%= f.input :call, :label => '주최자 연락처', :hint => '예) 홍길동, 010-1234-5678' %>
+	<%= f.input :money, :label => '회비', :input_html => { :value => 0 } %>
   <%= f.input :description, :label => '비고&준비물' %>
-  <%= f.input :limit, :label => '최대 인원', :hint => '본인제외'%>
-	<%= f.input :hikingphoto, :label => '사진' %>
+  <%= f.input :limit, :label => '최대 인원', :hint => '본인제외', :input_html => { :value => 5 }%>
+	<%= f.input :hikingphoto, :label => '등산할 "산" 사진' %>
 	
   <div class="form-actions">
     <%= f.submit ' 완료 ', :class => 'btn-primary' %>

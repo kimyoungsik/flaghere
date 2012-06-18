@@ -5,7 +5,7 @@
 	</div>
 	<% if mobile_device? %>
 		<div class = "mobile_main">
-			<div class ="hikingname"> <%= hiking.name %> 
+			<div class ="hikingname"> <%= link_to hiking.name, hiking_path(hiking) %> 
 				<% if (Time.now- hiking.datetime) < 0 and (hiking.hikingparticipations.length < hiking.limit) %>
 					<a class="btn btn-warning" href="hikings/<%= hiking.id %>"><i class="icon-leaf"></i> 대기</a>
 				<% elsif  (Time.now- hiking.datetime) < 0 and (hiking.hikingparticipations.length >= hiking.limit) %>
@@ -31,7 +31,7 @@
 		</div>
 	<% else %>
 		<div class = "main">
-			<div class ="hikingname"> <%= hiking.name %> 
+			<div class ="hikingname"> <%= link_to hiking.name, hiking_path(hiking) %> 
 				<% if (Time.now- hiking.datetime) < 0 and (hiking.hikingparticipations.length < hiking.limit) %>
 					<a class="btn btn-warning" href="hikings/<%= hiking.id %>"><i class="icon-leaf"></i> 대기</a>
 				<% elsif  (Time.now- hiking.datetime) < 0 and (hiking.hikingparticipations.length >= hiking.limit) %>
@@ -41,11 +41,12 @@
 				<% end %>
 			
 			</div> 
+			
 			<div> 출발 일시 : <%= hiking.datetime.strftime("%Y-%m-%d %H:%M") %> (<%= Province.find_by_id(hiking.province_id).name %>)</div>
-			<div>출발 장소 : <%= hiking.location %></div>
+			<div>모임 장소 : <%= hiking.location %></div>
 			<div>회비 : <%= number_with_delimiter(hiking.money) %></div>
 			<div>최대 인원 : <%= hiking.hikingparticipations.length %>/<%= hiking.limit %></div>
-			<div>준비물 &  비고 : <%= link_to "( 자세히 보기)" , hiking_path(hiking)%></div>
+			<div>준비물 &  비고 : <%= link_to "( 자세히 보기)" , hiking_path(hiking) %></div>
 
 			<% if admin_signed_in? or current_user == hiking.user %>
 		    <div>
