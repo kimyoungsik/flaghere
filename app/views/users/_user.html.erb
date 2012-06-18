@@ -5,8 +5,8 @@
 		<div class ="name"> <%= link_to user.nickname, user_path(user) %>
 			
 		</div> 
-		<div><%= user.introduce %>  / Flag (<%= user.participations.length + user.flags.length %>) 	<% if user.info_consent and !user.introduce.blank? %>
-			<% end %></div>
+		<div>	<% if user.info_consent and !user.introduce.blank? %><%= user.introduce %> / <% end %>Flag (<%= user.participations.length + user.flags.length %>) 
+			</div>
 	
 	</div>
 </div>
