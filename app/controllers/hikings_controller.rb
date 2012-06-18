@@ -4,7 +4,7 @@ class HikingsController < ApplicationController
   # GET /hikings
   # GET /hikings.json
   def index
-    @hikings = Hiking.page(params[:page]).per(10)
+    @hikings = Hiking.where(hikingtype_id: 1).page(params[:page]).per(10)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @hikings }
