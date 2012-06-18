@@ -20,7 +20,7 @@
 	<div>모임 장소 : <%= @hiking.location %></div>
 	<div>산행 코스 : <%= @hiking.course %></div>
 	<div>산행 등급 : <%= @hiking.level %>(1(쉬움)~10(어려움))</div>
-	<div>예상 시간 : <%= @hiking.hour %> </div>
+	<div>예상 시간 : <%= @hiking.hour.strftime("%H시 %M분") %> </div>
 	<div>산행 일수 : <%= @hiking.day %> </div>
 	<div>주최자 연락처 : <%= @hiking.call %> </div>
 	<div>회비 : <%= number_with_delimiter(@hiking.money) %></div>
@@ -33,7 +33,7 @@
 <div id="hiking-participate"> 
 	<%= render 'hiking_participate' %>
 </div>
-<div>망고마운틴은 영리를 목적으로 하지 않은 창작 플랫폼입니다. 산행 시 일어나는 사고 등 모든 책임은 본인에게 있습니다.</div>
+<div>망고마운틴 등산모임은 모임이 있음을 알리고 참여 할 수 있는 서비스를 제공하기 때문에 그 이외의 등산시에 발생하는 사고 등 모든 책임은 회원에게 있습니다.(이용약관 제19조 [책임제한])</div>
 <div>이글에 동의하시는분만 참가 신청 해주세요.</div>
 
 <table class="table">

@@ -1,7 +1,7 @@
 class HikingtypesController < ApplicationController
   # GET /hikingtypes
   # GET /hikingtypes.json
-  before_filter :admin_user
+  # before_filter :admin_user
   def index
     @hikingtypes = Hikingtype.all
 
