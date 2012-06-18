@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :authenticate_user!
-  # before_filter :noname_user, :except => [:destroy]
+  before_filter :noname_user, :except => [:destroy]
   before_filter :facebook_auth, :except => [:destroy]
   before_filter :prepare_for_mobile
   def noname_user
