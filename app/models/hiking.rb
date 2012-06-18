@@ -1,3 +1,4 @@
+#encoding:utf-8
 class Hiking < ActiveRecord::Base
   attr_accessible :datetime, :description, :limit, :location, :name, :province_id, :user_id, :hikingphoto, :money
   
@@ -19,4 +20,7 @@ class Hiking < ActiveRecord::Base
   
 
   validates :name, :datetime, :limit, :province_id, :user_id, :presence, :location, :money , :presence => true
+  validates :limit, numericality: {greater_than_or_equal_to: 0}
+  validates :money, numericality: {greater_than_or_equal_to: 0}
+  
 end

@@ -9,6 +9,7 @@ class Flag < ActiveRecord::Base
   has_many :kits, :as => :kitable, :dependent => :destroy
    
   validates :name, :date, :description, :location, :province_id, :user_id, :presence => true
+  validates :name, uniqueness: true
   
   has_attached_file :photo, :styles => { :thumb =>  "50x50#", :small => "150x150#", :large => "640x640>" },
     :url => "/system/flags/:id/:style/:basename.:extension",
