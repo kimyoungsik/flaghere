@@ -2,7 +2,7 @@
 <ul class = "display-inline-block">
 	<li class = "img-round"><%= profile_photo(@user, :large, 500) %></li>
 	<li class = "well" id="user_show_profile">
-		<div class ="user_name"> <%= @user.nickname %> < Flag <%= @user.participations.length + @user.flags.length %>> <% if @user.facebook_uid and current_user.facebook_connect %>
+		<div class ="user_name">  < Flag <%= @user.participations.length + @user.flags.length %>> <% if @user.facebook_uid and current_user.facebook_connect %>
 			<%= link_to image_tag('Facebook_icon.png'), "http://www.facebook.com/profile.php?id=#{@user.facebook_uid}", 
 			:target => '_blank', :class => "item-link" %>
 		<% end %></div>
