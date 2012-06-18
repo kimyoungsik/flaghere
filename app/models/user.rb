@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   # validates_attachment_presence :avatar
   validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
-  
+  validates :nickname, uniqueness: true
   
   has_many :flags, :dependent => :destroy
   has_many :hikings, :dependent => :destroy
