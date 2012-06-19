@@ -15,12 +15,19 @@ class FlagsController < ApplicationController
   # GET /flags/1
   # GET /flags/1.json
   def show
-    @flag = Flag.find(params[:id])
-    @kits = @flag.kits.page(params[:page]).per(10)
-    @kit = @flag.kits.build
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @flag }
+    begin
+      @flag = Flag.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to access invalid flag #{params[:id]}"
+      redirect_to root_path, notic: '유효하지 않은 페이지 입니다.'
+    else
+      
+      @kits = @flag.kits.page(params[:page]).per(10)
+      @kit = @flag.kits.build
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @flag }
+      end
     end
   end
 
