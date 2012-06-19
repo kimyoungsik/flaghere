@@ -39,6 +39,9 @@ class HikingsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @hiking }
     end
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to access invalid flag #{params[:id]}"
+      redirect_to root_path, notic: 'Invalid page'
   end
 
   # GET /hikings/new

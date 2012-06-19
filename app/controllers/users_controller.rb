@@ -8,6 +8,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @kits = @user.kits.page(params[:page]).per(20)
     @kit = @user.kits.build
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to access invalid flag #{params[:id]}"
+      redirect_to root_path, notic: 'Invalid page'
     
   end
   
