@@ -300,7 +300,15 @@ footer ul li {
 
 #user_show_profile
 {
-	background:  #FFFEDF;
+	background:  #FFF3CF;
+}
+
+
+#flag_form, #hiking_form {
+	background:  #FFF3CF;
+	.form-actions {
+		background:  #FFF3CF;
+	}
 }
 
 
