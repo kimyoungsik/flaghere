@@ -1,7 +1,7 @@
 <%= simple_form_for @hiking, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
   <%= f.hidden_field :user_id %>
-	<%= f.input :hikingtype_id, :collection => Hikingtype.all ,:label => '분류' %>
-  <%= f.input :province_id, :collection => Province.all ,:label => '도/특별시' %>
+	<%= f.input :hikingtype_id, :collection => Hikingtype.all ,:label => '분류',:prompt => '선택해주세요' %>
+  <%= f.input :province_id, :collection => Province.all ,:label => '도/특별시',:prompt => '선택해주세요'  %>
   <%= f.input :name, :label => '산 명칭' %>
   <%= f.input :datetime, :label => '출발 일시',:use_month_numbers => true %>
   <%= f.input :location, :label => '모임 장소' %>
